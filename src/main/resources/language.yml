@@ -1,0 +1,34 @@
+#--------------------
+#Messages
+#--------------------
+
+prefix: "<dark_gray>[<gold>Lobby<dark_gray>]"
+
+#Commands
+
+#Variables: [PREFIX], [USAGE]
+invalid_usage: "[PREFIX] <red>Richtige Verwendung - <yellow>[USAGE]"
+
+#/setvalue
+#Variables: [PREFIX], [X], [Y], [Z]
+spawn_set: "[PREFIX] <green>Du hast den Spawn zu <yellow>[X], [Y], [Z] <green>gesetzt."
+
+#--------------------
+#Items
+#--------------------
+
+selector_name: "<green>Navigator"
+admin_name: "<gold>Admin Menü"
+
+#--------------------
+#GUI Actions
+#--------------------
+
+#Install custom plugin
+enter_plugin_link: "[PREFIX] <green>Gib die URL zum Plugin ein"
+enter_plugin_name: "[PREFIX] <green>Gib jetzt den Namen für das Plugin ein"
+install_custom_plugin_command_send: "[PREFIX] <green>Es wird jetzt versucht das Plugin zu installieren."
+
+#Send command
+server_command_sent: "[PREFIX] <green>Der Command wurde an den Server gesendet"
+server_command_failed: "[PREFIX] <red>Das hat nicht geklappt"

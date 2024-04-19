@@ -1,0 +1,3 @@
+protocol_lib:
+  link: "https://github.com/dmulloy2/ProtocolLib/releases/latest/download/ProtocolLib.jar"
+  name: "ProtocolLib.jar"

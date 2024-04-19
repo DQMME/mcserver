@@ -1,0 +1,2 @@
+https://github.com/dmulloy2/ProtocolLib/releases/latest/download/ProtocolLib.jar
+https://github.com/DQMME/mc-server/releases/latest/download/subserver.jar

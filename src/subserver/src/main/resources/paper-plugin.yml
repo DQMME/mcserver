@@ -1,0 +1,10 @@
+api-version: '1.20'
+
+# Change all of these to your plugin's information
+name: PluginManager
+version: '1.0'
+main: de.dqmme.subserver.Subserver
+loader: de.dqmme.subserver.PluginLoader
+description: Manages plugins installed by the lobby
+authors: [ DQMME ]
+load: POSTWORLD

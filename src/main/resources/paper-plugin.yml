@@ -1,0 +1,10 @@
+api-version: '1.20'
+
+# Change all of these to your plugin's information
+name: Lobby
+version: '1.0'
+main: de.dqmme.mcserver.MCServer
+loader: de.dqmme.mcserver.PluginLoader
+description: Lobby for my Minecraft Server
+authors: [ DQMME ]
+load: POSTWORLD

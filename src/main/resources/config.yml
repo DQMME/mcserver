@@ -1,0 +1,16 @@
+pterodactyl:
+  host: "https://example.org"
+  application_token: "XYZ"
+  client_token: "XYZ"
+  server_owner_id: 123
+  node_id: 123
+  nest_id: 123
+  egg_id: 123
+  location_id: 123
+  allocation_ip: "123.123.123.123"
+  server_description: "Minecraft Server"
+mongo:
+  connection: "mongodb://localhost:27017"
+  database: "lobby"
+default_profile_uuid: "ddd51684-dee2-4027-b29e-f693044558a6"
+subserver_plugin_name: "subserver.jar"
