@@ -37,7 +37,12 @@ suspend fun Player.openAdminGUI(startManageServers: Boolean = false) {
     val serverPlugins = hashMapOf<Long, List<GenericFile>>()
 
     servers.forEach {
-        val clientServer = it.getClientServer() ?: return@forEach
+        val clientServer = it.getClientServer()
+
+        if(clientServer == null) {
+            Database.deleteServer(it.id)
+            return@forEach
+        }
 
         serverInfos[it.id] = clientServer
 
