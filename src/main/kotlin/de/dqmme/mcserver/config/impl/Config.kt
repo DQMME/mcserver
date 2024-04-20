@@ -39,6 +39,8 @@ class Config : AbstractConfig("config.yml") {
 
     fun getServerDescription() = yamlConfiguration.getString("server_description") ?: "Minecraft Server"
 
+    fun getVelocitySecret() = yamlConfiguration.getString("velocity_secret")
+
     fun getSpawnLocation() = yamlConfiguration.getLocation("spawn_location")
 
     fun setSpawnLocation(location: Location) {

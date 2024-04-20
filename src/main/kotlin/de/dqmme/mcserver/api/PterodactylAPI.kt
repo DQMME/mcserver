@@ -111,7 +111,8 @@ object PterodactylAPI {
         maxAllocations: Long = 1L,
         maxDatabases: Long = 0L,
         jarFile: String = "server.jar",
-        version: String = "1.20.4"
+        version: String = "1.20.4",
+        velocitySecret: String? = pluginConfig.getVelocitySecret()
     ): Pair<ApplicationServer?, String?> {
         val nest = getNest(nestId)
 
@@ -169,8 +170,15 @@ object PterodactylAPI {
             return null to "allocation_not_found"
         }
 
+        if (velocitySecret == null) {
+            KSpigotMainInstance.logger.log(Level.WARNING, "Server creation failed - Velocity secret not found")
+            return null to "velocity_secret_not_found"
+        }
+
         val environmentVariables = mapOf(
-            "SERVER_JARFILE" to EnvironmentValue.of(jarFile), "MINECRAFT_VERSION" to EnvironmentValue.of(version)
+            "SERVER_JARFILE" to EnvironmentValue.of(jarFile),
+            "MINECRAFT_VERSION" to EnvironmentValue.of(version),
+            "VELOCITY_SECRET" to EnvironmentValue.of(velocitySecret)
         )
 
         return withContext(Dispatchers.IO) {

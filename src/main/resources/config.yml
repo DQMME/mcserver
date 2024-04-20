@@ -14,3 +14,4 @@ mongo:
   database: "lobby"
 default_profile_uuid: "ddd51684-dee2-4027-b29e-f693044558a6"
 subserver_plugin_name: "subserver.jar"
+velocity_secret: "XYZ"
