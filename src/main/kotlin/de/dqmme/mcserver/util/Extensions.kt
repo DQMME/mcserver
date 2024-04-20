@@ -4,8 +4,11 @@ import com.mattmalec.pterodactyl4j.UtilizationState
 import com.mattmalec.pterodactyl4j.client.entities.Utilization
 import de.dqmme.mcserver.dataclass.ManageSingleServerPage
 import de.dqmme.mcserver.dataclass.StorageType
+import net.axay.kspigot.main.KSpigotMainInstance
 import net.axay.kspigot.runnables.task
 import net.kyori.adventure.text.minimessage.MiniMessage
+import org.bukkit.Difficulty
+import org.bukkit.GameRule
 import org.bukkit.entity.Player
 
 fun String.deserializeMini() = MiniMessage.miniMessage().deserialize(this)
@@ -65,6 +68,14 @@ fun UtilizationState.coloredName(): String {
         UtilizationState.STARTING -> "<yellow><bold>Startet"
         UtilizationState.RUNNING -> "<green><bold>Online"
         UtilizationState.STOPPING -> "<yellow><bold>Wird gestoppt"
+    }
+}
+
+fun prepareWorlds() {
+    KSpigotMainInstance.server.worlds.forEach {
+        it.difficulty = Difficulty.PEACEFUL
+        it.time = 0
+        it.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false)
     }
 }
 

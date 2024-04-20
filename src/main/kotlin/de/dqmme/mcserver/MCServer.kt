@@ -22,6 +22,7 @@ import de.dqmme.mcserver.event.registerPlayerInteractEvent
 import de.dqmme.mcserver.event.registerPlayerJoinEvent
 import de.dqmme.mcserver.event.registerPlayerQuitEvent
 import de.dqmme.mcserver.util.Database
+import de.dqmme.mcserver.util.prepareWorlds
 import net.axay.kspigot.extensions.pluginManager
 import net.axay.kspigot.main.KSpigot
 import java.util.logging.Level
@@ -56,5 +57,8 @@ class MCServer : KSpigot() {
         registerPlayerInteractEvent()
         registerPlayerJoinEvent()
         registerPlayerQuitEvent()
+
+        //Prepare worlds
+        prepareWorlds()
     }
 }
