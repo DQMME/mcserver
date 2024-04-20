@@ -15,7 +15,7 @@ class ServerPluginsConfig : AbstractConfig("server-plugins.yml") {
 
             if(link == null || name == null) return@forEach
 
-            plugins.add(ServerPlugin(link, name))
+            plugins.add(ServerPlugin(it, link, name))
         }
 
         return plugins.toList()
