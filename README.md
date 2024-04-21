@@ -1,12 +1,16 @@
 # MCServer
 
 Plugin for my Minecraft Server, I plan to use it for Testing plugins and host servers to play shit for me and my friends
+
 The plugin currently does:
 
 - Lobby listeners (eg hunger, damage, block break/place)
 - create subservers via pterodactyl
-- manage subservers via pterodactyl
-- join servers via naviagtor and velocity (integrating velocity in next update)
+- manage subservers via pterodactyl (get status, stop,start,restart, run command, delete server, change name, specs, is
+  private, invited players)
+- join servers via navigator and velocity
+- support for BUtils by [Banko](https://www.twitch.tv/derbanko) (automatically add license when installed on subserver)
+- probably some more things I forgot (probably make a good README later)
 
 credits (thank you):
 
