@@ -8,7 +8,7 @@ import de.dqmme.mcserver.config.impl.navigatorConfig
 import de.dqmme.mcserver.gui.admingui.page.createServerPage
 import de.dqmme.mcserver.gui.admingui.page.manageServersPage
 import de.dqmme.mcserver.gui.openWaitGUI
-import de.dqmme.mcserver.util.Database
+import de.dqmme.mcserver.database.Database
 import de.dqmme.mcserver.util.deserializeMini
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

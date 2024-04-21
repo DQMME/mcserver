@@ -22,7 +22,7 @@ import de.dqmme.mcserver.event.registerPlayerDropItemEvent
 import de.dqmme.mcserver.event.registerPlayerInteractEvent
 import de.dqmme.mcserver.event.registerPlayerJoinEvent
 import de.dqmme.mcserver.event.registerPlayerQuitEvent
-import de.dqmme.mcserver.util.Database
+import de.dqmme.mcserver.database.Database
 import de.dqmme.mcserver.util.prepareWorlds
 import net.axay.kspigot.extensions.pluginManager
 import net.axay.kspigot.main.KSpigot

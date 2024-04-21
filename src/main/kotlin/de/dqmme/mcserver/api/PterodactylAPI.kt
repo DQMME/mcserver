@@ -16,7 +16,7 @@ import com.mattmalec.pterodactyl4j.client.entities.GenericFile
 import com.mattmalec.pterodactyl4j.client.entities.Utilization
 import de.dqmme.mcserver.config.impl.pluginConfig
 import de.dqmme.mcserver.dataclass.Server
-import de.dqmme.mcserver.util.Database
+import de.dqmme.mcserver.database.Database
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.axay.kspigot.main.KSpigotMainInstance

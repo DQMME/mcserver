@@ -1,4 +1,4 @@
-package de.dqmme.mcserver.util
+package de.dqmme.mcserver.database
 
 import de.dqmme.mcserver.config.impl.pluginConfig
 import de.dqmme.mcserver.dataclass.Server

@@ -7,7 +7,7 @@ import de.dqmme.mcserver.gui.GUIItems
 import de.dqmme.mcserver.gui.admingui.scope
 import de.dqmme.mcserver.gui.selectorgui.button.setiteminfo.setNameButton
 import de.dqmme.mcserver.gui.selectorgui.openSelectorGUI
-import de.dqmme.mcserver.util.Database
+import de.dqmme.mcserver.database.Database
 import de.dqmme.mcserver.util.deserializeMini
 import kotlinx.coroutines.launch
 import net.axay.kspigot.gui.ForInventoryThreeByNine

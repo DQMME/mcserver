@@ -4,7 +4,7 @@ import de.dqmme.mcserver.dataclass.Server
 import de.dqmme.mcserver.gui.selectorgui.page.setiteminfo.setMaterialPage
 import de.dqmme.mcserver.gui.selectorgui.page.setiteminfo.setServerPage
 import de.dqmme.mcserver.gui.selectorgui.page.setiteminfo.startPage
-import de.dqmme.mcserver.util.Database
+import de.dqmme.mcserver.database.Database
 import de.dqmme.mcserver.util.deserializeMini
 import net.axay.kspigot.gui.GUIType
 import net.axay.kspigot.gui.InventorySlot
