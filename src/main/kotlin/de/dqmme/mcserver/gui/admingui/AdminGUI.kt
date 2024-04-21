@@ -9,8 +9,6 @@ import de.dqmme.mcserver.gui.admingui.page.manageServersPage
 import de.dqmme.mcserver.gui.openWaitGUI
 import de.dqmme.mcserver.database.Database
 import de.dqmme.mcserver.util.deserializeMini
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import net.axay.kspigot.gui.GUIType
 import net.axay.kspigot.gui.PageChangeEffect
 import net.axay.kspigot.gui.Slots
@@ -22,8 +20,6 @@ import net.axay.kspigot.items.name
 import net.axay.kspigot.runnables.task
 import org.bukkit.Material
 import org.bukkit.entity.Player
-
-val scope = CoroutineScope(Dispatchers.IO)
 
 suspend fun Player.openAdminGUI(startManageServers: Boolean = false) {
     task(true) {

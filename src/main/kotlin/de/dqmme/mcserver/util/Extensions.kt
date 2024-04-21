@@ -4,6 +4,8 @@ import com.mattmalec.pterodactyl4j.UtilizationState
 import com.mattmalec.pterodactyl4j.client.entities.Utilization
 import de.dqmme.mcserver.dataclass.ManageSingleServerPage
 import de.dqmme.mcserver.dataclass.StorageType
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import net.axay.kspigot.main.KSpigotMainInstance
 import net.axay.kspigot.runnables.task
 import net.kyori.adventure.text.minimessage.MiniMessage
@@ -82,3 +84,5 @@ fun prepareWorlds() {
 fun Player.closeInventorySync() = task(true) {
     closeInventory()
 }
+
+val scope = CoroutineScope(Dispatchers.IO)

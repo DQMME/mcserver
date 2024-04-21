@@ -4,11 +4,11 @@ import de.dqmme.mcserver.config.impl.navigatorConfig
 import de.dqmme.mcserver.dataclass.NavigatorItem
 import de.dqmme.mcserver.dataclass.Server
 import de.dqmme.mcserver.gui.GUIItems
-import de.dqmme.mcserver.gui.admingui.scope
 import de.dqmme.mcserver.gui.selectorgui.gui.openReloadedSetInfoGUI
 import de.dqmme.mcserver.gui.selectorgui.openSelectorGUI
 import de.dqmme.mcserver.database.Database
 import de.dqmme.mcserver.util.deserializeMini
+import de.dqmme.mcserver.util.scope
 import kotlinx.coroutines.launch
 import net.axay.kspigot.gui.ForInventorySixByNine
 import net.axay.kspigot.gui.GUIBuilder

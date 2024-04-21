@@ -1,9 +1,9 @@
 package de.dqmme.mcserver.gui.admingui.button.manageserver
 
 import de.dqmme.mcserver.dataclass.Server
-import de.dqmme.mcserver.gui.admingui.scope
 import de.dqmme.mcserver.database.Database
 import de.dqmme.mcserver.util.deserializeMini
+import de.dqmme.mcserver.util.scope
 import kotlinx.coroutines.launch
 import net.axay.kspigot.gui.ForInventoryFiveByNine
 import net.axay.kspigot.gui.GUIPageBuilder

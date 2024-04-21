@@ -9,11 +9,11 @@ import de.dqmme.mcserver.gui.admingui.AdminGUIItems
 import de.dqmme.mcserver.gui.admingui.button.manageserver.serverInfoPlaceholder
 import de.dqmme.mcserver.gui.admingui.button.manageserver.updateInfoButton
 import de.dqmme.mcserver.gui.admingui.gui.openReloadedManageSingleServerGUI
-import de.dqmme.mcserver.gui.admingui.scope
 import de.dqmme.mcserver.item.Skulls
 import de.dqmme.mcserver.database.Database
 import de.dqmme.mcserver.util.deserializeMini
 import de.dqmme.mcserver.util.getPageNumbers
+import de.dqmme.mcserver.util.scope
 import de.rapha149.signgui.SignGUI
 import de.rapha149.signgui.SignGUIAction
 import kotlinx.coroutines.launch

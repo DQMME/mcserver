@@ -16,8 +16,8 @@ import de.dqmme.mcserver.gui.admingui.button.manageserver.serverInfoPlaceholder
 import de.dqmme.mcserver.gui.admingui.button.manageserver.stateButtons
 import de.dqmme.mcserver.gui.admingui.button.manageserver.updateInfoButton
 import de.dqmme.mcserver.gui.admingui.gui.openReloadedManageSingleServerGUI
-import de.dqmme.mcserver.gui.admingui.scope
 import de.dqmme.mcserver.util.getPageNumbers
+import de.dqmme.mcserver.util.scope
 import kotlinx.coroutines.launch
 import net.axay.kspigot.gui.ForInventoryFiveByNine
 import net.axay.kspigot.gui.GUIBuilder

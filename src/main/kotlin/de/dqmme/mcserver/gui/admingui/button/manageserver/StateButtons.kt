@@ -2,7 +2,7 @@ package de.dqmme.mcserver.gui.admingui.button.manageserver
 
 import de.dqmme.mcserver.dataclass.Server
 import de.dqmme.mcserver.gui.admingui.AdminGUIItems
-import de.dqmme.mcserver.gui.admingui.scope
+import de.dqmme.mcserver.util.scope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import net.axay.kspigot.gui.ForInventoryFiveByNine

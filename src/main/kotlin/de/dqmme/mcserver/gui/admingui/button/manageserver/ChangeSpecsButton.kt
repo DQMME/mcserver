@@ -4,8 +4,8 @@ import com.mattmalec.pterodactyl4j.client.entities.ClientServer
 import de.dqmme.mcserver.api.PterodactylAPI
 import de.dqmme.mcserver.dataclass.Server
 import de.dqmme.mcserver.gui.admingui.gui.openReloadedManageSingleServerGUI
-import de.dqmme.mcserver.gui.admingui.scope
 import de.dqmme.mcserver.util.deserializeMini
+import de.dqmme.mcserver.util.scope
 import de.rapha149.signgui.SignGUI
 import de.rapha149.signgui.SignGUIAction
 import kotlinx.coroutines.launch

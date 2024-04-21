@@ -8,8 +8,8 @@ import de.dqmme.mcserver.gui.GUIItems
 import de.dqmme.mcserver.gui.admingui.AdminGUIItems
 import de.dqmme.mcserver.gui.admingui.gui.openManageSingleServerGUI
 import de.dqmme.mcserver.gui.admingui.openAdminGUI
-import de.dqmme.mcserver.gui.admingui.scope
 import de.dqmme.mcserver.util.deserializeMini
+import de.dqmme.mcserver.util.scope
 import kotlinx.coroutines.launch
 import net.axay.kspigot.gui.ForInventoryFiveByNine
 import net.axay.kspigot.gui.GUIBuilder

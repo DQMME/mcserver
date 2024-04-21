@@ -11,8 +11,8 @@ import de.dqmme.mcserver.gui.admingui.button.createserver.setNameButton
 import de.dqmme.mcserver.gui.admingui.button.createserver.setPortButton
 import de.dqmme.mcserver.gui.admingui.button.createserver.setPrivateButton
 import de.dqmme.mcserver.gui.admingui.openAdminGUI
-import de.dqmme.mcserver.gui.admingui.scope
 import de.dqmme.mcserver.util.deserializeMini
+import de.dqmme.mcserver.util.scope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import net.axay.kspigot.gui.GUIType

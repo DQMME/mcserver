@@ -5,8 +5,8 @@ import de.dqmme.mcserver.config.impl.getLanguage
 import de.dqmme.mcserver.gui.admingui.button.manageserver.inputLink
 import de.dqmme.mcserver.gui.admingui.button.manageserver.inputName
 import de.dqmme.mcserver.gui.admingui.button.manageserver.runCommand
-import de.dqmme.mcserver.gui.admingui.scope
 import de.dqmme.mcserver.rank.getRank
+import de.dqmme.mcserver.util.scope
 import io.papermc.paper.event.player.AsyncChatEvent
 import kotlinx.coroutines.launch
 import net.axay.kspigot.event.listen

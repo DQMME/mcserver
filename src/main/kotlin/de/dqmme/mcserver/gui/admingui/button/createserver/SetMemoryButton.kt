@@ -2,8 +2,8 @@ package de.dqmme.mcserver.gui.admingui.button.createserver
 
 import com.mattmalec.pterodactyl4j.DataType
 import de.dqmme.mcserver.gui.admingui.gui.openCreateServerGUI
-import de.dqmme.mcserver.gui.admingui.scope
 import de.dqmme.mcserver.util.deserializeMini
+import de.dqmme.mcserver.util.scope
 import de.rapha149.signgui.SignGUI
 import de.rapha149.signgui.SignGUIAction
 import kotlinx.coroutines.launch
