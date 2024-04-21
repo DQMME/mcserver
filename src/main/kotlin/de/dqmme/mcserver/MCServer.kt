@@ -5,11 +5,13 @@ import de.dqmme.mcserver.command.registerSetValueCommand
 import de.dqmme.mcserver.config.impl.Config
 import de.dqmme.mcserver.config.impl.LanguageConfig
 import de.dqmme.mcserver.config.impl.NavigatorConfig
+import de.dqmme.mcserver.config.impl.RankConfig
 import de.dqmme.mcserver.config.impl.ServerPluginsConfig
 import de.dqmme.mcserver.config.impl.SkullConfig
 import de.dqmme.mcserver.config.impl.languageConfig
 import de.dqmme.mcserver.config.impl.navigatorConfig
 import de.dqmme.mcserver.config.impl.pluginConfig
+import de.dqmme.mcserver.config.impl.rankConfig
 import de.dqmme.mcserver.config.impl.serverPluginsConfig
 import de.dqmme.mcserver.config.impl.skullConfig
 import de.dqmme.mcserver.event.registerAsyncChatEvent
@@ -23,6 +25,7 @@ import de.dqmme.mcserver.event.registerPlayerInteractEvent
 import de.dqmme.mcserver.event.registerPlayerJoinEvent
 import de.dqmme.mcserver.event.registerPlayerQuitEvent
 import de.dqmme.mcserver.database.Database
+import de.dqmme.mcserver.rank.RankManager
 import de.dqmme.mcserver.util.prepareWorlds
 import net.axay.kspigot.extensions.pluginManager
 import net.axay.kspigot.main.KSpigot
@@ -34,6 +37,7 @@ class MCServer : KSpigot() {
         pluginConfig = Config()
         languageConfig = LanguageConfig()
         navigatorConfig = NavigatorConfig()
+        rankConfig = RankConfig()
         serverPluginsConfig = ServerPluginsConfig()
         skullConfig = SkullConfig()
 
@@ -64,6 +68,9 @@ class MCServer : KSpigot() {
 
         //Register Plugin Messaging Channel
         PluginMessaging.registerMessageChannel()
+
+        //Register rank teams
+        RankManager.createTeams()
     }
 
     override fun shutdown() {

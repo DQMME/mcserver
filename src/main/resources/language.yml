@@ -4,6 +4,11 @@
 
 prefix: "<dark_gray>[<gold>Lobby<dark_gray>]"
 
+#How chat messages will look
+#Prefix and suffix will automatically get a space, so don't add it in the format
+#Variables: [PREFIX], [RANK_PREFIX], [RANK_SUFFIX], [PLAYER_NAME], [MESSAGE]
+chat_message_format: "[RANK_PREFIX]<white>[PLAYER_NAME]</white>[RANK_SUFFIX] <gray>- <white>[MESSAGE]"
+
 #Commands
 
 #Variables: [PREFIX], [USAGE]

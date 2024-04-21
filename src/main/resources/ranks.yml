@@ -1,0 +1,21 @@
+#Those are prefixes and suffixes displayed in chat and tab
+#You can use MiniMessages there too
+#The priority is from low too high, means 0 is higher than 1
+
+#format:
+#  permission: ""
+#  priority: 00000
+#  prefix: ""
+#  suffix: ""
+owner:
+  permission: "lobby.rank.owner"
+  priority: 00000
+  prefix: "<red><bold>Owner</bold> <grey>|"
+admin:
+  permission: "lobby.rank.admin"
+  priority: 00001
+  prefix: "<red>Admin <grey>|"
+default:
+  priority: 00002
+  prefix: "<grey>Spieler |"
+  suffix: ""

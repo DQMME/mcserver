@@ -2,6 +2,7 @@ package de.dqmme.mcserver.event
 
 import de.dqmme.mcserver.config.impl.pluginConfig
 import de.dqmme.mcserver.item.Items
+import de.dqmme.mcserver.rank.addToRankTeam
 import de.dqmme.mcserver.util.Permissions
 import net.axay.kspigot.event.listen
 import org.bukkit.GameMode
@@ -27,4 +28,7 @@ fun registerPlayerJoinEvent() = listen<PlayerJoinEvent> {
     //Teleport player to spawn location
     val spawnLocation = pluginConfig.getSpawnLocation()
     if (spawnLocation != null) it.player.teleport(spawnLocation)
+
+    //Add to team for prefix/suffix
+    it.player.addToRankTeam()
 }

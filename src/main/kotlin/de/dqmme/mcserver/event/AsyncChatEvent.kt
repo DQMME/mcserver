@@ -6,14 +6,34 @@ import de.dqmme.mcserver.gui.admingui.button.manageserver.inputLink
 import de.dqmme.mcserver.gui.admingui.button.manageserver.inputName
 import de.dqmme.mcserver.gui.admingui.button.manageserver.runCommand
 import de.dqmme.mcserver.gui.admingui.scope
+import de.dqmme.mcserver.rank.getRank
 import io.papermc.paper.event.player.AsyncChatEvent
 import kotlinx.coroutines.launch
 import net.axay.kspigot.event.listen
 import net.axay.kspigot.extensions.bukkit.plainText
 
 fun registerAsyncChatEvent() = listen<AsyncChatEvent> {
+    it.chatFormat()
     it.sendCommand()
     it.addOwnPluginInputLink()
+}
+
+private fun AsyncChatEvent.chatFormat() {
+    renderer { source, _, message, _ ->
+        val rank = source.getRank()!!
+
+        val prefix = if (rank.prefix != null) "${rank.prefix} " else ""
+        val suffix = if (rank.suffix != null) " ${rank.suffix}" else ""
+
+        getLanguage(
+            "chat_message_format", hashMapOf(
+                "[RANK_PREFIX]" to prefix,
+                "[RANK_SUFFIX]" to suffix,
+                "[PLAYER_NAME]" to source.name,
+                "[MESSAGE]" to message.plainText(),
+            )
+        )
+    }
 }
 
 private fun AsyncChatEvent.sendCommand() {
