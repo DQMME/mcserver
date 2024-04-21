@@ -38,7 +38,7 @@ fun GUIPageBuilder<ForInventoryThreeByNine>.searchItemButton(
 
                 player.openSetInfoGUI(servers, setSlot, setName, setMaterial, setServer, query)
 
-                mutableListOf(SignGUIAction.run {  })
+                mutableListOf(SignGUIAction.run { })
             }
             .build()
             .open(it.player)

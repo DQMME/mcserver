@@ -56,7 +56,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.setDiskButton(
 
                 var disk: Pair<Long, DataType>? = null
 
-                if(dataType != null && diskLong != null) disk = diskLong to dataType
+                if (dataType != null && diskLong != null) disk = diskLong to dataType
 
                 scope.launch {
                     player.openCreateServerGUI(setName, setPort, setMemory, setCPU, disk)

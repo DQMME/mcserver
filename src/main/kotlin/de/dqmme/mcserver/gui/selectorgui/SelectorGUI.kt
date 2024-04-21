@@ -44,7 +44,7 @@ suspend fun Player.openSelectorGUI(startManagePage: Boolean = false) {
     privateServers.forEach {
         val serverInfo = it.getClientServer()
 
-        if(serverInfo == null) {
+        if (serverInfo == null) {
             Database.deleteServer(it.id)
             PterodactylAPI.removeProxyServer(it.id)
             navigatorConfig.deleteNavigatorItem(it.id)

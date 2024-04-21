@@ -18,7 +18,7 @@ object MojangAPI {
 
         connection.requestMethod = "GET"
 
-        if(connection.responseCode != HttpURLConnection.HTTP_OK) return null
+        if (connection.responseCode != HttpURLConnection.HTTP_OK) return null
 
         val response = BufferedReader(InputStreamReader(connection.inputStream)).readText()
 

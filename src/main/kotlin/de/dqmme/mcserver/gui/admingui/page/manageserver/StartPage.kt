@@ -63,7 +63,7 @@ fun GUIBuilder<ForInventoryFiveByNine>.startPage(
 
         setPrivateButton(Slots.RowFourSlotNine, server)
 
-        if(utilization == null) {
+        if (utilization == null) {
             placeholder(Slots.RowThreeSlotSix, AdminGUIItems.serverNotInstalledPlaceholder)
             placeholder(Slots.RowTwoSlotFive, AdminGUIItems.serverNotInstalledPlaceholder)
             placeholder(Slots.RowFiveSlotNine, AdminGUIItems.serverNotInstalledPlaceholder)

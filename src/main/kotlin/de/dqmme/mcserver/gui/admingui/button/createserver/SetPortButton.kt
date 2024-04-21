@@ -30,7 +30,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.setPortButton(
 
             setLore {
                 +"<green>Setze den Port des Servers".deserializeMini()
-                if(setPort != null) +"<yellow>Aktuell: <aqua>$setPort".deserializeMini()
+                if (setPort != null) +"<yellow>Aktuell: <aqua>$setPort".deserializeMini()
             }
         }
     }) {
@@ -42,7 +42,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.setPortButton(
                     player.openCreateServerGUI(setName, port, setMemory, setCPU, setDisk)
                 }
 
-                listOf(SignGUIAction.run {  })
+                listOf(SignGUIAction.run { })
             }
             .build()
             .open(it.player)

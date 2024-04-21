@@ -30,7 +30,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.setNameButton(
 
             setLore {
                 +"<green>Setze den Namen des Servers".deserializeMini()
-                if(setName != null) +"<yellow>Aktuell: <aqua>$setName".deserializeMini()
+                if (setName != null) +"<yellow>Aktuell: <aqua>$setName".deserializeMini()
             }
         }
     }) {
@@ -38,13 +38,13 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.setNameButton(
             .setHandler { player, signGUIResult ->
                 var name = signGUIResult.getLine(0)
 
-                if(name.isEmpty()) name = null
+                if (name.isEmpty()) name = null
 
                 scope.launch {
                     player.openCreateServerGUI(name, setPort, setMemory, setCPU, setDisk)
                 }
 
-                listOf(SignGUIAction.run {  })
+                listOf(SignGUIAction.run { })
             }
             .build()
             .open(it.player)

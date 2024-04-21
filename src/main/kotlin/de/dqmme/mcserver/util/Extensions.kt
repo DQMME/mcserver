@@ -50,7 +50,7 @@ fun getPageNumbers(
     val numbers = hashMapOf<ManageSingleServerPage, Int>()
 
     ManageSingleServerPage.entries.forEach {
-        if (it != pageToStart && it != ManageSingleServerPage.START ) {
+        if (it != pageToStart && it != ManageSingleServerPage.START) {
             numbers[it] = it.defaultNumber
             return@forEach
         }
@@ -63,7 +63,7 @@ fun getPageNumbers(
 }
 
 fun UtilizationState.coloredName(): String {
-    return when(this) {
+    return when (this) {
         UtilizationState.OFFLINE -> "<red><bold>Offline"
         UtilizationState.STARTING -> "<yellow><bold>Startet"
         UtilizationState.RUNNING -> "<green><bold>Online"

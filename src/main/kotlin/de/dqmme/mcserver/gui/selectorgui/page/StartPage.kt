@@ -77,7 +77,7 @@ fun GUIBuilder<ForInventorySixByNine>.startPage(
             }
         }, 5, null, null)
 
-        if(player.hasPermission(Permissions.UPDATE_NAVIGATOR)) {
+        if (player.hasPermission(Permissions.UPDATE_NAVIGATOR)) {
             pageChanger(Slots.RowOneSlotOne, itemStack(Material.STICK) {
                 meta {
                     name = "<green>Navigator bearbeiten".deserializeMini()
@@ -86,7 +86,7 @@ fun GUIBuilder<ForInventorySixByNine>.startPage(
                         +"<green>Füge Server hinzu, entferne Server und ändere Slots".deserializeMini()
                     }
                 }
-            }, if(startManagePage) 1 else 2, null, null)
+            }, if (startManagePage) 1 else 2, null, null)
         }
     }
 }

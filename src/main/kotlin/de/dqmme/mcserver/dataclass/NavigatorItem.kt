@@ -7,4 +7,4 @@ data class NavigatorItem(
     val slotInRow: Int,
     val name: String,
     val material: Material
-    )
+)

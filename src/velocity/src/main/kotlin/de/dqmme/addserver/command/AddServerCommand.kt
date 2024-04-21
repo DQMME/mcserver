@@ -10,12 +10,12 @@ import net.kyori.adventure.text.Component
 
 class AddServerCommand(private val proxyServer: ProxyServer) : SimpleCommand {
     override fun execute(command: SimpleCommand.Invocation) {
-        if(command.source() !is ConsoleCommandSource) {
+        if (command.source() !is ConsoleCommandSource) {
             command.source().sendMessage(Component.text("Der Command kann nur als Konsole ausgeführt werden"))
             return
         }
 
-        if(command.arguments().size != 3) {
+        if (command.arguments().size != 3) {
             command.source().sendMessage(Component.text("Verwendung - /addserver <id> <ip> <port>"))
             return
         }
@@ -24,7 +24,7 @@ class AddServerCommand(private val proxyServer: ProxyServer) : SimpleCommand {
         val ip = command.arguments()[1]
         val port = command.arguments()[2].toIntOrNull()
 
-        if(id == null || ip.isEmpty() || port == null) {
+        if (id == null || ip.isEmpty() || port == null) {
             command.source().sendMessage(Component.text("Verwendung - /addserver <id> <ip> <port>"))
             return
         }

@@ -43,14 +43,16 @@ fun GUIBuilder<ForInventoryFiveByNine>.managePlayersPage(
 
         val compound = createRectCompound<OfflinePlayer>(
             Slots.RowTwoSlotOne, Slots.RowFiveSlotEight,
-            iconGenerator = { with(Skulls.getPlayerHead(it)) {
-                meta<SkullMeta> {
-                    setLore {
-                        +"<red>Entferne diesen Spieler vom Server".deserializeMini()
+            iconGenerator = {
+                with(Skulls.getPlayerHead(it)) {
+                    meta<SkullMeta> {
+                        setLore {
+                            +"<red>Entferne diesen Spieler vom Server".deserializeMini()
+                        }
                     }
+                    this
                 }
-                this
-            } },
+            },
             onClick = { clickEvent, element ->
                 val newInvitedPlayers = server.invitedPlayers.toMutableList()
 
@@ -112,7 +114,7 @@ fun GUIBuilder<ForInventoryFiveByNine>.managePlayersPage(
                         )
                     }
 
-                    mutableListOf(SignGUIAction.run {  })
+                    mutableListOf(SignGUIAction.run { })
                 }
                 .build()
                 .open(it.player)

@@ -39,7 +39,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.setPrivateButton(
     }
 
     button(slot, if (createPrivateServer) privateItemStack else publicItemStack) {
-        if(createPrivateServer) {
+        if (createPrivateServer) {
             createPrivateServer = false
             it.guiInstance[slot] = publicItemStack
         } else {

@@ -37,7 +37,8 @@ object Database {
 
     suspend fun getNavigatorServers() = serverCollection.find(Server::isOnNavigator eq true).toList()
 
-    suspend fun getPrivateServers(uuid: String) = serverCollection.find((Server::invitedPlayers::contains)(uuid)).toList()
+    suspend fun getPrivateServers(uuid: String) =
+        serverCollection.find((Server::invitedPlayers::contains)(uuid)).toList()
 
     suspend fun saveServer(server: Server) = serverCollection.save(server)
 

@@ -43,7 +43,11 @@ object AdminGUIItems {
         this
     }
 
-    fun downloadPluginItem(serverPlugin: ServerPlugin, utilization: Utilization?, plugins: List<GenericFile>): ItemStack {
+    fun downloadPluginItem(
+        serverPlugin: ServerPlugin,
+        utilization: Utilization?,
+        plugins: List<GenericFile>
+    ): ItemStack {
         if (utilization == null || utilization.state != UtilizationState.RUNNING) {
             return with(Skulls.grayArrowDown) {
                 meta {

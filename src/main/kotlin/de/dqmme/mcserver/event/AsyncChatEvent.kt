@@ -24,7 +24,7 @@ private fun AsyncChatEvent.sendCommand() {
     val command = message().plainText()
 
     scope.launch {
-        if(PterodactylAPI.sendCommand(serverId, command)) {
+        if (PterodactylAPI.sendCommand(serverId, command)) {
             player.sendMessage(getLanguage("server_command_sent"))
         } else {
             player.sendMessage(getLanguage("server_command_failed"))
@@ -38,7 +38,7 @@ private fun AsyncChatEvent.addOwnPluginInputLink() {
     val server = inputLink[player.uniqueId]
     val serverLink = inputName[player.uniqueId]
 
-    if(server != null && serverLink == null) {
+    if (server != null && serverLink == null) {
         inputLink.remove(player.uniqueId)
 
         val link = message().plainText()
@@ -50,15 +50,15 @@ private fun AsyncChatEvent.addOwnPluginInputLink() {
         return
     }
 
-    if(server == null && serverLink != null) {
+    if (server == null && serverLink != null) {
         inputName.remove(player.uniqueId)
 
         var name = message().plainText()
 
-        if(!name.endsWith(".jar")) name = "$name.jar"
+        if (!name.endsWith(".jar")) name = "$name.jar"
 
         scope.launch {
-            if(!serverLink.first.installPlugin(serverLink.second, name)) {
+            if (!serverLink.first.installPlugin(serverLink.second, name)) {
                 player.sendMessage(getLanguage("server_command_failed"))
                 return@launch
             }

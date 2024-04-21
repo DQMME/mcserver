@@ -29,39 +29,39 @@ fun GUIBuilder<ForInventoryFiveByNine>.manageServersPage(
     serverUtilization: HashMap<Long, Utilization>,
     serverPlugins: HashMap<Long, List<GenericFile>>
 ) {
-    page(if(startPage) 1 else 2) {
+    page(if (startPage) 1 else 2) {
         transitionTo = PageChangeEffect.SLIDE_VERTICALLY
         transitionFrom = PageChangeEffect.SLIDE_VERTICALLY
 
         val compound = createRectCompound<Server>(
-                Slots.RowOneSlotOne, Slots.RowFiveSlotEight, iconGenerator = {
-                    val serverInfo = serverInfos[it.id]!!
-                    val utilization = serverUtilization[it.id]
+            Slots.RowOneSlotOne, Slots.RowFiveSlotEight, iconGenerator = {
+                val serverInfo = serverInfos[it.id]!!
+                val utilization = serverUtilization[it.id]
 
-                    with(AdminGUIItems.serverInfoItem(serverInfo, utilization)) {
-                        meta {
-                            addLore {
-                                +"<gold>Klicke um die Server-Infos zu bearbeiten.".deserializeMini()
-                            }
+                with(AdminGUIItems.serverInfoItem(serverInfo, utilization)) {
+                    meta {
+                        addLore {
+                            +"<gold>Klicke um die Server-Infos zu bearbeiten.".deserializeMini()
                         }
-                        this
                     }
-                },
+                    this
+                }
+            },
 
-                onClick = onClick@{ clickEvent, element ->
-                    val serverInfo = serverInfos[element.id]
-                    val utilization = serverUtilization[element.id]
-                    val plugins = serverPlugins[element.id] ?: emptyList()
+            onClick = onClick@{ clickEvent, element ->
+                val serverInfo = serverInfos[element.id]
+                val utilization = serverUtilization[element.id]
+                val plugins = serverPlugins[element.id] ?: emptyList()
 
-                    if (serverInfo == null) {
-                        clickEvent.bukkitEvent.isCancelled = true
-                        return@onClick
-                    }
-
-                    clickEvent.player.closeInventory()
-                    clickEvent.player.openManageSingleServerGUI(element, serverInfo, utilization, plugins)
+                if (serverInfo == null) {
+                    clickEvent.bukkitEvent.isCancelled = true
                     return@onClick
-                })
+                }
+
+                clickEvent.player.closeInventory()
+                clickEvent.player.openManageSingleServerGUI(element, serverInfo, utilization, plugins)
+                return@onClick
+            })
 
         compound.sortContentBy { serverInfos[it.id]?.name ?: "" }
 
@@ -71,7 +71,7 @@ fun GUIBuilder<ForInventoryFiveByNine>.manageServersPage(
             Slots.RowFiveSlotNine, GUIItems.scrollUp, compound, scrollTimes = 5, reverse = true
         )
 
-        pageChanger(Slots.RowFourSlotNine, GUIItems.back, if(!startPage) 1 else 2, null, null)
+        pageChanger(Slots.RowFourSlotNine, GUIItems.back, if (!startPage) 1 else 2, null, null)
 
         compoundScroll(
             Slots.RowThreeSlotNine, GUIItems.scrollDown, compound, scrollTimes = 5

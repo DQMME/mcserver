@@ -60,7 +60,7 @@ fun GUIBuilder<ForInventoryThreeByNine>.setServerPage(
 }
 
 private fun serverItem(server: Server): ItemStack {
-    if(navigatorConfig.getServerItem(server.id) != null) {
+    if (navigatorConfig.getServerItem(server.id) != null) {
         return itemStack(Material.YELLOW_DYE) {
             meta {
                 name = "<yellow>${server.name}".deserializeMini()

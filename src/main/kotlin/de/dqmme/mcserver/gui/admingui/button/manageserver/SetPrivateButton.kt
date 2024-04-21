@@ -55,7 +55,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.setPrivateButton(
     }
 
     button(slot, if (isPrivate) privateItemStack else publicItemStack) {
-        if(isPrivate) {
+        if (isPrivate) {
             isPrivate = false
             it.guiInstance[slot] = publicItemStack
         } else {
@@ -68,7 +68,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.setPrivateButton(
         scope.launch {
             Database.saveServer(server.copy(isPrivate = isPrivate))
 
-            if(isPrivate) {
+            if (isPrivate) {
                 it.guiInstance[slot] = privateItemStack
             } else {
                 it.guiInstance[slot] = publicItemStack

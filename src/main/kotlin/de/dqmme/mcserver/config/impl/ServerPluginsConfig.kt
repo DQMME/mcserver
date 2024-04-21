@@ -13,7 +13,7 @@ class ServerPluginsConfig : AbstractConfig("server-plugins.yml") {
             val link = yamlConfiguration.getString("$it.link")
             val name = yamlConfiguration.getString("$it.name")
 
-            if(link == null || name == null) return@forEach
+            if (link == null || name == null) return@forEach
 
             plugins.add(ServerPlugin(it, link, name))
         }

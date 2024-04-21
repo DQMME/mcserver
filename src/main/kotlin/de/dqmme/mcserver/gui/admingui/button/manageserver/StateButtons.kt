@@ -33,9 +33,9 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.stateButtons(
 
     button(
         slots = startButtonSlot,
-        itemStack = if(stateCooldown) AdminGUIItems.startServerItemCooldown else AdminGUIItems.startServerItem
+        itemStack = if (stateCooldown) AdminGUIItems.startServerItemCooldown else AdminGUIItems.startServerItem
     ) onClick@{
-        if(stateCooldown) return@onClick
+        if (stateCooldown) return@onClick
 
         scope.launch {
             it.guiInstance.setCooldownItems()
@@ -57,9 +57,9 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.stateButtons(
 
     button(
         slots = restartButtonSlot,
-        itemStack = if(stateCooldown) AdminGUIItems.restartServerItemCooldown else AdminGUIItems.restartServerItem
+        itemStack = if (stateCooldown) AdminGUIItems.restartServerItemCooldown else AdminGUIItems.restartServerItem
     ) onClick@{
-        if(stateCooldown) return@onClick
+        if (stateCooldown) return@onClick
 
         scope.launch {
             it.guiInstance.setCooldownItems()
@@ -81,9 +81,9 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.stateButtons(
 
     button(
         slots = stopButtonSlot,
-        itemStack = if(stateCooldown) AdminGUIItems.stopServerItemCooldown else AdminGUIItems.stopServerItem
+        itemStack = if (stateCooldown) AdminGUIItems.stopServerItemCooldown else AdminGUIItems.stopServerItem
     ) onClick@{
-        if(stateCooldown) return@onClick
+        if (stateCooldown) return@onClick
 
         scope.launch {
             it.guiInstance.setCooldownItems()

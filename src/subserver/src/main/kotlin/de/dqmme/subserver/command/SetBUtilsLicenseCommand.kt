@@ -28,7 +28,7 @@ class SetBUtilsLicenseCommand : BukkitCommand("setbutilslicense") {
 
         val bUtilsConfigFile = File(bUtilsFolder, "config.yml")
 
-        if(!bUtilsConfigFile.exists()) {
+        if (!bUtilsConfigFile.exists()) {
             bUtilsConfigFile.createNewFile()
 
             bUtilsConfigFile.writeText("license: '$license'")
@@ -40,7 +40,7 @@ class SetBUtilsLicenseCommand : BukkitCommand("setbutilslicense") {
 
         val fileText = bUtilsConfigFile.readText()
 
-        if(fileText.contains("license")) {
+        if (fileText.contains("license")) {
             bUtilsConfigFile.writeText(fileText.replace("license: ''", "license: '$license'"))
         } else {
             bUtilsConfigFile.writeText("$fileText\nlicense: '$license'")

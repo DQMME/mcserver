@@ -9,19 +9,19 @@ import net.kyori.adventure.text.Component
 
 class RemoveServerCommand(private val proxyServer: ProxyServer) : SimpleCommand {
     override fun execute(command: SimpleCommand.Invocation) {
-        if(command.source() !is ConsoleCommandSource) {
+        if (command.source() !is ConsoleCommandSource) {
             command.source().sendMessage(Component.text("Der Command kann nur als Konsole ausgeführt werden"))
             return
         }
 
-        if(command.arguments().size != 1) {
+        if (command.arguments().size != 1) {
             command.source().sendMessage(Component.text("Verwendung - /removeserver <id>"))
             return
         }
 
         val id = command.arguments()[0].toLongOrNull()
 
-        if(id == null) {
+        if (id == null) {
             command.source().sendMessage(Component.text("Verwendung - /removeserver <id>"))
             return
         }

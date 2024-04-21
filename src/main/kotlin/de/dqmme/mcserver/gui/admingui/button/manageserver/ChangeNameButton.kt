@@ -48,7 +48,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.changeNameButton(
 
                     Database.saveServer(server.copy(name = newName))
 
-                   player.openReloadedManageSingleServerGUI(server, serverInfo)
+                    player.openReloadedManageSingleServerGUI(server, serverInfo)
                 }
 
                 mutableListOf(SignGUIAction.run {})

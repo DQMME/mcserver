@@ -56,7 +56,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.setMemoryButton(
 
                 var memory: Pair<Long, DataType>? = null
 
-                if(dataType != null && memoryLong != null) memory = memoryLong to dataType
+                if (dataType != null && memoryLong != null) memory = memoryLong to dataType
 
                 scope.launch {
                     player.openCreateServerGUI(setName, setPort, memory, setCPU, setDisk)

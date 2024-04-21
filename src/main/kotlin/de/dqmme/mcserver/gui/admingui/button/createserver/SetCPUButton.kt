@@ -30,7 +30,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.setCPUButton(
 
             setLore {
                 +"<green>Setze wie viel % CPU der Server nutzen kann".deserializeMini()
-                if(setPort != null) +"<yellow>Aktuell: <aqua>$setCPU".deserializeMini()
+                if (setPort != null) +"<yellow>Aktuell: <aqua>$setCPU".deserializeMini()
             }
         }
     }) {
@@ -43,7 +43,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.setCPUButton(
                     player.openCreateServerGUI(setName, setPort, setMemory, cpu, setDisk)
                 }
 
-                listOf(SignGUIAction.run {  })
+                listOf(SignGUIAction.run { })
             }
             .build()
             .open(it.player)

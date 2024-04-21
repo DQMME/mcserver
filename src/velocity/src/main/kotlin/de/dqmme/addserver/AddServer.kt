@@ -20,7 +20,7 @@ import java.nio.file.Path
     dependencies = [],
     url = "https://github.com/mcserver",
     description = "Add Servers via command",
-    authors = [ "DQMME" ]
+    authors = ["DQMME"]
 )
 class AddServer {
     @Inject

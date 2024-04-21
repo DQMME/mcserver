@@ -62,12 +62,12 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.changeSpecsButton(
                         .replace("GB", "")
                         .toLongOrNull()
 
-                    if(newMemory == null || newCPU == null || newStorage == null) {
+                    if (newMemory == null || newCPU == null || newStorage == null) {
                         player.openReloadedManageSingleServerGUI(server, serverInfo)
                         return@launch
                     }
 
-                    if(!PterodactylAPI.editServerSpecs(serverInfo, newMemory, newCPU, newStorage)) {
+                    if (!PterodactylAPI.editServerSpecs(serverInfo, newMemory, newCPU, newStorage)) {
                         player.openReloadedManageSingleServerGUI(server, serverInfo)
                         return@launch
                     }

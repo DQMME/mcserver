@@ -39,7 +39,7 @@ suspend fun Player.openAdminGUI(startManageServers: Boolean = false) {
     servers.forEach {
         val clientServer = it.getClientServer()
 
-        if(clientServer == null) {
+        if (clientServer == null) {
             Database.deleteServer(it.id)
             PterodactylAPI.removeProxyServer(it.id)
             navigatorConfig.deleteNavigatorItem(it.id)
@@ -59,11 +59,11 @@ suspend fun Player.openAdminGUI(startManageServers: Boolean = false) {
 
     servers.removeIf { serverInfos[it.id] == null }
 
-    task(true, delay = if(servers.isEmpty()) 15 else 0) {
+    task(true, delay = if (servers.isEmpty()) 15 else 0) {
         openGUI(kSpigotGUI(GUIType.FIVE_BY_NINE) {
             title = "<red>Admin-Menü".deserializeMini()
 
-            page(if(!startManageServers) 1 else 2) {
+            page(if (!startManageServers) 1 else 2) {
                 transitionTo = PageChangeEffect.SLIDE_VERTICALLY
                 transitionFrom = PageChangeEffect.SLIDE_VERTICALLY
 
@@ -71,7 +71,7 @@ suspend fun Player.openAdminGUI(startManageServers: Boolean = false) {
                     meta {
                         name = "<green>Server verwalten".deserializeMini()
                     }
-                }, if(startManageServers) 1 else 2, null, null)
+                }, if (startManageServers) 1 else 2, null, null)
 
                 pageChanger(Slots.RowThreeSlotSix, AdminGUIItems.createServer, 3, null, null)
             }
