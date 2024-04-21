@@ -42,14 +42,7 @@ suspend fun Player.openSelectorGUI(startManagePage: Boolean = false) {
     val privateServerUtilizations = hashMapOf<Long, Utilization>()
 
     privateServers.forEach {
-        val serverInfo = it.getClientServer()
-
-        if (serverInfo == null) {
-            Database.deleteServer(it.id)
-            PterodactylAPI.removeProxyServer(it.id)
-            navigatorConfig.deleteNavigatorItem(it.id)
-            return@forEach
-        }
+        val serverInfo = it.getClientServer() ?: return@forEach
 
         val utilization = PterodactylAPI.getUtilization(serverInfo)
 

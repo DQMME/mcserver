@@ -4,7 +4,6 @@ import com.mattmalec.pterodactyl4j.client.entities.ClientServer
 import com.mattmalec.pterodactyl4j.client.entities.GenericFile
 import com.mattmalec.pterodactyl4j.client.entities.Utilization
 import de.dqmme.mcserver.api.PterodactylAPI
-import de.dqmme.mcserver.config.impl.navigatorConfig
 import de.dqmme.mcserver.gui.admingui.page.createServerPage
 import de.dqmme.mcserver.gui.admingui.page.manageServersPage
 import de.dqmme.mcserver.gui.openWaitGUI
@@ -37,14 +36,7 @@ suspend fun Player.openAdminGUI(startManageServers: Boolean = false) {
     val serverPlugins = hashMapOf<Long, List<GenericFile>>()
 
     servers.forEach {
-        val clientServer = it.getClientServer()
-
-        if (clientServer == null) {
-            Database.deleteServer(it.id)
-            PterodactylAPI.removeProxyServer(it.id)
-            navigatorConfig.deleteNavigatorItem(it.id)
-            return@forEach
-        }
+        val clientServer = it.getClientServer() ?: return@forEach
 
         serverInfos[it.id] = clientServer
 
