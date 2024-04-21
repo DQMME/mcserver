@@ -120,6 +120,8 @@ suspend fun Player.openCreateServerGUI(
                                 isPrivate = createPrivateServer
                             ).first
 
+                            createPrivateServer = false
+
                             delay(1.seconds)
 
                             it.player.openAdminGUI(true)
