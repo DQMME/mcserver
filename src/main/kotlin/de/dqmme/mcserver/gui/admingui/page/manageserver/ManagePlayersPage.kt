@@ -4,6 +4,8 @@ import com.mattmalec.pterodactyl4j.client.entities.ClientServer
 import com.mattmalec.pterodactyl4j.client.entities.Utilization
 import de.dqmme.mcserver.dataclass.ManageSingleServerPage
 import de.dqmme.mcserver.dataclass.Server
+import de.dqmme.mcserver.gui.GUIItems
+import de.dqmme.mcserver.gui.admingui.AdminGUIItems
 import de.dqmme.mcserver.gui.admingui.button.manageserver.serverInfoPlaceholder
 import de.dqmme.mcserver.gui.admingui.button.manageserver.updateInfoButton
 import de.dqmme.mcserver.gui.admingui.gui.openReloadedManageSingleServerGUI
@@ -20,7 +22,6 @@ import net.axay.kspigot.gui.GUIBuilder
 import net.axay.kspigot.gui.PageChangeEffect
 import net.axay.kspigot.gui.Slots
 import net.axay.kspigot.items.meta
-import net.axay.kspigot.items.name
 import net.axay.kspigot.items.setLore
 import net.axay.kspigot.main.KSpigotMainInstance
 import org.bukkit.Material
@@ -78,31 +79,22 @@ fun GUIBuilder<ForInventoryFiveByNine>.managePlayersPage(
         )
 
         compoundScroll(
-            Slots.RowFiveSlotNine, Skulls.arrowUp, compound, scrollTimes = 5, reverse = true
+            Slots.RowFiveSlotNine, GUIItems.scrollUp, compound, scrollTimes = 5, reverse = true
         )
 
         pageChanger(
             Slots.RowFourSlotNine,
-            Skulls.arrowLeft,
+            GUIItems.back,
             pageNumbers[ManageSingleServerPage.START]!!,
             null,
             null
         )
 
         compoundScroll(
-            Slots.RowThreeSlotNine, Skulls.arrowDown, compound, scrollTimes = 5
+            Slots.RowThreeSlotNine, GUIItems.scrollDown, compound, scrollTimes = 5
         )
 
-        button(Slots.RowOneSlotOne, with(Skulls.plus) {
-            meta {
-                name = "<green>Spieler hinzufügen".deserializeMini()
-
-                setLore {
-                    +"<green>Füge einen Spieler hinzu, welcher dem Server beitreten kann".deserializeMini()
-                }
-            }
-            this
-        }) {
+        button(Slots.RowOneSlotOne, AdminGUIItems.addPlayer) {
             SignGUI.builder()
                 .setHandler { player, signGUIResult ->
                     scope.launch {

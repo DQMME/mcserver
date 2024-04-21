@@ -4,10 +4,10 @@ import com.mattmalec.pterodactyl4j.client.entities.ClientServer
 import com.mattmalec.pterodactyl4j.client.entities.Utilization
 import de.dqmme.mcserver.dataclass.ManageSingleServerPage
 import de.dqmme.mcserver.dataclass.Server
+import de.dqmme.mcserver.gui.GUIItems
 import de.dqmme.mcserver.gui.admingui.button.manageserver.addOwnPluginsButton
 import de.dqmme.mcserver.gui.admingui.button.manageserver.serverInfoPlaceholder
 import de.dqmme.mcserver.gui.admingui.button.manageserver.updateInfoButton
-import de.dqmme.mcserver.item.Skulls
 import de.dqmme.mcserver.util.deserializeMini
 import de.dqmme.mcserver.util.getPageNumbers
 import net.axay.kspigot.gui.ForInventoryFiveByNine
@@ -34,7 +34,7 @@ fun GUIBuilder<ForInventoryFiveByNine>.pluginMenuPage(
 
         pageChanger(
             Slots.RowFiveSlotOne,
-            Skulls.arrowLeft,
+            GUIItems.back,
             pageNumbers[ManageSingleServerPage.START]!!,
             null,
             null

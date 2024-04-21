@@ -10,24 +10,20 @@ import de.dqmme.mcserver.config.impl.serverPluginsConfig
 import de.dqmme.mcserver.dataclass.ManageSingleServerPage
 import de.dqmme.mcserver.dataclass.Server
 import de.dqmme.mcserver.dataclass.ServerPlugin
+import de.dqmme.mcserver.gui.GUIItems
+import de.dqmme.mcserver.gui.admingui.AdminGUIItems
 import de.dqmme.mcserver.gui.admingui.button.manageserver.serverInfoPlaceholder
 import de.dqmme.mcserver.gui.admingui.button.manageserver.stateButtons
 import de.dqmme.mcserver.gui.admingui.button.manageserver.updateInfoButton
 import de.dqmme.mcserver.gui.admingui.gui.openReloadedManageSingleServerGUI
 import de.dqmme.mcserver.gui.admingui.scope
-import de.dqmme.mcserver.item.Skulls
-import de.dqmme.mcserver.util.deserializeMini
 import de.dqmme.mcserver.util.getPageNumbers
 import kotlinx.coroutines.launch
 import net.axay.kspigot.gui.ForInventoryFiveByNine
 import net.axay.kspigot.gui.GUIBuilder
 import net.axay.kspigot.gui.PageChangeEffect
 import net.axay.kspigot.gui.Slots
-import net.axay.kspigot.items.meta
-import net.axay.kspigot.items.name
-import net.axay.kspigot.items.setLore
 import org.bukkit.Material
-import org.bukkit.inventory.ItemStack
 
 fun GUIBuilder<ForInventoryFiveByNine>.downloadPredefinedPluginsPage(
     server: Server,
@@ -46,7 +42,7 @@ fun GUIBuilder<ForInventoryFiveByNine>.downloadPredefinedPluginsPage(
             createRectCompound<ServerPlugin>(
                 Slots.RowOneSlotOne,
                 Slots.RowFiveSlotEight,
-                iconGenerator = { downloadPluginItem(it, utilization, plugins) },
+                iconGenerator = { AdminGUIItems.downloadPluginItem(it, utilization, plugins) },
 
                 onClick = { clickEvent, element ->
                     scope.launch {
@@ -86,19 +82,19 @@ fun GUIBuilder<ForInventoryFiveByNine>.downloadPredefinedPluginsPage(
         compound.addContent(serverPluginsConfig.getServerPlugins())
 
         compoundScroll(
-            Slots.RowFiveSlotNine, Skulls.arrowUp, compound, scrollTimes = 5, reverse = true
+            Slots.RowFiveSlotNine, GUIItems.scrollUp, compound, scrollTimes = 5, reverse = true
         )
 
         pageChanger(
             Slots.RowFourSlotNine,
-            Skulls.arrowLeft,
+            GUIItems.back,
             pageNumbers[ManageSingleServerPage.PLUGIN_MENU]!!,
             null,
             null
         )
 
         compoundScroll(
-            Slots.RowThreeSlotNine, Skulls.arrowDown, compound, scrollTimes = 5
+            Slots.RowThreeSlotNine, GUIItems.scrollDown, compound, scrollTimes = 5
         )
 
         stateButtons(
@@ -117,48 +113,5 @@ fun GUIBuilder<ForInventoryFiveByNine>.downloadPredefinedPluginsPage(
         )
 
         serverInfoPlaceholder(Slots.RowOneSlotNine, serverInfo, utilization)
-    }
-}
-
-fun downloadPluginItem(serverPlugin: ServerPlugin, utilization: Utilization?, plugins: List<GenericFile>): ItemStack {
-    if (utilization == null || utilization.state != UtilizationState.RUNNING) {
-        return with(Skulls.grayArrowDown) {
-            meta {
-                name = "<gray>${serverPlugin.name}".deserializeMini()
-
-                setLore {
-                    +"<gray><bold>Plugins können nur heruntergeladen werden, wenn der Server läuft".deserializeMini()
-                    +"<gray>Lade das Plugin ${serverPlugin.name} herunter".deserializeMini()
-                }
-            }
-            this
-        }
-    }
-
-    if (plugins.find { it.name == serverPlugin.name } != null) {
-        return with(Skulls.yellowArrowDown) {
-            meta {
-                name = "<yellow>${serverPlugin.name}".deserializeMini()
-
-                setLore {
-                    +"<yellow><bold>Das Plugin ist bereits installiert. Beim Herunterladen wird es ersetzt".deserializeMini()
-                    +"<yellow>Lade das Plugin ${serverPlugin.name} herunter".deserializeMini()
-                }
-            }
-            this
-        }
-    }
-
-    return with(Skulls.limeArrowDown) {
-        meta {
-            name = "<green>${serverPlugin.name}".deserializeMini()
-
-            setLore {
-                +"<red><bold>Klicke nur einmal! Aktualisiere dann die Seite mit der Uhr unten rechts.".deserializeMini()
-                +"<green>Status: <red>Nicht installiert".deserializeMini()
-                +"<green>Lade das Plugin ${serverPlugin.name} herunter".deserializeMini()
-            }
-        }
-        this
     }
 }

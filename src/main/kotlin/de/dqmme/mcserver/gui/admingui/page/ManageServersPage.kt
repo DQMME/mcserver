@@ -4,11 +4,11 @@ import com.mattmalec.pterodactyl4j.client.entities.ClientServer
 import com.mattmalec.pterodactyl4j.client.entities.GenericFile
 import com.mattmalec.pterodactyl4j.client.entities.Utilization
 import de.dqmme.mcserver.dataclass.Server
+import de.dqmme.mcserver.gui.GUIItems
+import de.dqmme.mcserver.gui.admingui.AdminGUIItems
 import de.dqmme.mcserver.gui.admingui.gui.openManageSingleServerGUI
 import de.dqmme.mcserver.gui.admingui.openAdminGUI
 import de.dqmme.mcserver.gui.admingui.scope
-import de.dqmme.mcserver.item.Items
-import de.dqmme.mcserver.item.Skulls
 import de.dqmme.mcserver.util.deserializeMini
 import kotlinx.coroutines.launch
 import net.axay.kspigot.gui.ForInventoryFiveByNine
@@ -38,7 +38,7 @@ fun GUIBuilder<ForInventoryFiveByNine>.manageServersPage(
                     val serverInfo = serverInfos[it.id]!!
                     val utilization = serverUtilization[it.id]
 
-                    with(Items.serverInfoItem(serverInfo, utilization)) {
+                    with(AdminGUIItems.serverInfoItem(serverInfo, utilization)) {
                         meta {
                             addLore {
                                 +"<gold>Klicke um die Server-Infos zu bearbeiten.".deserializeMini()
@@ -68,13 +68,13 @@ fun GUIBuilder<ForInventoryFiveByNine>.manageServersPage(
         compound.addContent(servers)
 
         compoundScroll(
-            Slots.RowFiveSlotNine, Skulls.arrowUp, compound, scrollTimes = 5, reverse = true
+            Slots.RowFiveSlotNine, GUIItems.scrollUp, compound, scrollTimes = 5, reverse = true
         )
 
-        pageChanger(Slots.RowFourSlotNine, Skulls.arrowLeft, if(!startPage) 1 else 2, null, null)
+        pageChanger(Slots.RowFourSlotNine, GUIItems.back, if(!startPage) 1 else 2, null, null)
 
         compoundScroll(
-            Slots.RowThreeSlotNine, Skulls.arrowDown, compound, scrollTimes = 5
+            Slots.RowThreeSlotNine, GUIItems.scrollDown, compound, scrollTimes = 5
         )
 
         button(Slots.RowOneSlotNine, itemStack(Material.CLOCK) {

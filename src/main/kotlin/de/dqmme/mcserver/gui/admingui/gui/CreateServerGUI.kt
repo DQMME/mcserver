@@ -3,6 +3,7 @@ package de.dqmme.mcserver.gui.admingui.gui
 import com.mattmalec.pterodactyl4j.DataType
 import de.dqmme.mcserver.api.PterodactylAPI
 import de.dqmme.mcserver.config.impl.pluginConfig
+import de.dqmme.mcserver.gui.GUIItems
 import de.dqmme.mcserver.gui.admingui.button.createserver.setCPUButton
 import de.dqmme.mcserver.gui.admingui.button.createserver.setDiskButton
 import de.dqmme.mcserver.gui.admingui.button.createserver.setMemoryButton
@@ -11,7 +12,6 @@ import de.dqmme.mcserver.gui.admingui.button.createserver.setPortButton
 import de.dqmme.mcserver.gui.admingui.button.createserver.setPrivateButton
 import de.dqmme.mcserver.gui.admingui.openAdminGUI
 import de.dqmme.mcserver.gui.admingui.scope
-import de.dqmme.mcserver.item.Skulls
 import de.dqmme.mcserver.util.deserializeMini
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -52,7 +52,7 @@ suspend fun Player.openCreateServerGUI(
                 transitionTo = PageChangeEffect.SLIDE_VERTICALLY
                 transitionFrom = PageChangeEffect.SLIDE_VERTICALLY
 
-                button(Slots.RowFiveSlotOne, Skulls.arrowLeft) {
+                button(Slots.RowFiveSlotOne, GUIItems.back) {
                     scope.launch {
                         it.player.openAdminGUI()
                     }

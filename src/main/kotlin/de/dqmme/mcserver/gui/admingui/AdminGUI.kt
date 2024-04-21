@@ -8,7 +8,6 @@ import de.dqmme.mcserver.config.impl.navigatorConfig
 import de.dqmme.mcserver.gui.admingui.page.createServerPage
 import de.dqmme.mcserver.gui.admingui.page.manageServersPage
 import de.dqmme.mcserver.gui.openWaitGUI
-import de.dqmme.mcserver.item.Skulls
 import de.dqmme.mcserver.util.Database
 import de.dqmme.mcserver.util.deserializeMini
 import kotlinx.coroutines.CoroutineScope
@@ -74,7 +73,7 @@ suspend fun Player.openAdminGUI(startManageServers: Boolean = false) {
                     }
                 }, if(startManageServers) 1 else 2, null, null)
 
-                pageChanger(Slots.RowThreeSlotSix, Skulls.plus, 3, null, null)
+                pageChanger(Slots.RowThreeSlotSix, AdminGUIItems.createServer, 3, null, null)
             }
 
             manageServersPage(startManageServers, servers, serverInfos, serverUtilization, serverPlugins)

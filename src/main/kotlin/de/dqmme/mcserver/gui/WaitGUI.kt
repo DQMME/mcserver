@@ -1,6 +1,5 @@
 package de.dqmme.mcserver.gui
 
-import de.dqmme.mcserver.item.Items
 import net.axay.kspigot.gui.GUIType
 import net.axay.kspigot.gui.PageChangeEffect
 import net.axay.kspigot.gui.Slots
@@ -15,7 +14,7 @@ fun Player.openWaitGUI() = task(true) {
             transitionTo = PageChangeEffect.SLIDE_VERTICALLY
             transitionFrom = PageChangeEffect.SLIDE_VERTICALLY
 
-            placeholder(Slots.RowTwoSlotFive, Items.waitItem("Alle Infos werden geladen, lehn dich zurück."))
+            placeholder(Slots.RowTwoSlotFive, GUIItems.waitItem("Alle Infos werden geladen, lehn dich zurück."))
         }
     })
 }

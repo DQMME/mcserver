@@ -3,9 +3,9 @@ package de.dqmme.mcserver.gui.admingui.button.manageserver
 import com.mattmalec.pterodactyl4j.client.entities.ClientServer
 import de.dqmme.mcserver.api.PterodactylAPI
 import de.dqmme.mcserver.config.impl.navigatorConfig
+import de.dqmme.mcserver.gui.admingui.AdminGUIItems
 import de.dqmme.mcserver.gui.admingui.openAdminGUI
 import de.dqmme.mcserver.gui.admingui.scope
-import de.dqmme.mcserver.item.Skulls
 import de.dqmme.mcserver.util.Database
 import de.dqmme.mcserver.util.deserializeMini
 import kotlinx.coroutines.launch
@@ -85,16 +85,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.deleteServerButton(
         }
     }
 
-    return button(slots, with(Skulls.redX) {
-        meta {
-            name = "<red><bold>Server löschen".deserializeMini()
-
-            setLore {
-                +"<red><bold>Lösche den Server".deserializeMini()
-            }
-        }
-        this
-    }) {
+    return button(slots, AdminGUIItems.deleteServerItem) {
         it.player.openGUI(confirmGUI)
     }
 }

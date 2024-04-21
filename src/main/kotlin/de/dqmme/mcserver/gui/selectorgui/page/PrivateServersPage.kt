@@ -5,8 +5,7 @@ import com.mattmalec.pterodactyl4j.client.entities.ClientServer
 import com.mattmalec.pterodactyl4j.client.entities.Utilization
 import de.dqmme.mcserver.api.PluginMessaging
 import de.dqmme.mcserver.dataclass.Server
-import de.dqmme.mcserver.item.Items.stateItems
-import de.dqmme.mcserver.item.Skulls
+import de.dqmme.mcserver.gui.GUIItems
 import de.dqmme.mcserver.util.coloredName
 import de.dqmme.mcserver.util.deserializeMini
 import net.axay.kspigot.gui.ForInventorySixByNine
@@ -66,16 +65,16 @@ fun GUIBuilder<ForInventorySixByNine>.privateServersPage(
         compound.addContent(privateServers)
 
         compoundScroll(
-            Slots.RowThreeSlotNine, Skulls.arrowUp, compound, scrollTimes = 3, reverse = true
+            Slots.RowThreeSlotNine, GUIItems.scrollUp, compound, scrollTimes = 3, reverse = true
         )
 
         compoundScroll(
-            Slots.RowOneSlotNine, Skulls.arrowDown, compound, scrollTimes = 3
+            Slots.RowOneSlotNine, GUIItems.scrollDown, compound, scrollTimes = 3
         )
 
         pageChanger(
             Slots.RowThreeSlotOne,
-            Skulls.arrowLeft,
+            GUIItems.back,
             if (openManageServers) 2 else 1,
             null,
             null
@@ -97,7 +96,7 @@ fun serverItem(server: Server, utilization: Utilization?): ItemStack {
         }
     }
 
-    return itemStack(stateItems[utilization.state]!!) {
+    return itemStack(GUIItems.stateItems[utilization.state]!!) {
         meta {
             name = "<gold>${server.name}".deserializeMini()
 

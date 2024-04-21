@@ -4,6 +4,8 @@ import com.mattmalec.pterodactyl4j.client.entities.ClientServer
 import com.mattmalec.pterodactyl4j.client.entities.Utilization
 import de.dqmme.mcserver.dataclass.ManageSingleServerPage
 import de.dqmme.mcserver.dataclass.Server
+import de.dqmme.mcserver.gui.GUIItems
+import de.dqmme.mcserver.gui.admingui.AdminGUIItems
 import de.dqmme.mcserver.gui.admingui.button.manageserver.changeNameButton
 import de.dqmme.mcserver.gui.admingui.button.manageserver.changeSpecsButton
 import de.dqmme.mcserver.gui.admingui.button.manageserver.deleteServerButton
@@ -14,8 +16,6 @@ import de.dqmme.mcserver.gui.admingui.button.manageserver.stateButtons
 import de.dqmme.mcserver.gui.admingui.button.manageserver.updateInfoButton
 import de.dqmme.mcserver.gui.admingui.openAdminGUI
 import de.dqmme.mcserver.gui.admingui.scope
-import de.dqmme.mcserver.item.Items
-import de.dqmme.mcserver.item.Skulls
 import de.dqmme.mcserver.util.deserializeMini
 import de.dqmme.mcserver.util.getPageNumbers
 import kotlinx.coroutines.launch
@@ -41,7 +41,7 @@ fun GUIBuilder<ForInventoryFiveByNine>.startPage(
         transitionTo = PageChangeEffect.SLIDE_VERTICALLY
         transitionFrom = PageChangeEffect.SLIDE_VERTICALLY
 
-        button(Slots.RowFiveSlotOne, itemStack = Skulls.arrowLeft) {
+        button(Slots.RowFiveSlotOne, GUIItems.back) {
             scope.launch {
                 it.player.openAdminGUI(true)
             }
@@ -64,13 +64,13 @@ fun GUIBuilder<ForInventoryFiveByNine>.startPage(
         setPrivateButton(Slots.RowFourSlotNine, server)
 
         if(utilization == null) {
-            placeholder(Slots.RowThreeSlotSix, Items.serverNotInstalledPlaceholder)
-            placeholder(Slots.RowTwoSlotFive, Items.serverNotInstalledPlaceholder)
-            placeholder(Slots.RowFiveSlotNine, Items.serverNotInstalledPlaceholder)
-            placeholder(Slots.RowThreeSlotFive, Items.serverNotInstalledPlaceholder)
-            placeholder(Slots.RowThreeSlotOne, Items.serverNotInstalledPlaceholder)
-            placeholder(Slots.RowTwoSlotOne, Items.serverNotInstalledPlaceholder)
-            placeholder(Slots.RowOneSlotOne, Items.serverNotInstalledPlaceholder)
+            placeholder(Slots.RowThreeSlotSix, AdminGUIItems.serverNotInstalledPlaceholder)
+            placeholder(Slots.RowTwoSlotFive, AdminGUIItems.serverNotInstalledPlaceholder)
+            placeholder(Slots.RowFiveSlotNine, AdminGUIItems.serverNotInstalledPlaceholder)
+            placeholder(Slots.RowThreeSlotFive, AdminGUIItems.serverNotInstalledPlaceholder)
+            placeholder(Slots.RowThreeSlotOne, AdminGUIItems.serverNotInstalledPlaceholder)
+            placeholder(Slots.RowTwoSlotOne, AdminGUIItems.serverNotInstalledPlaceholder)
+            placeholder(Slots.RowOneSlotOne, AdminGUIItems.serverNotInstalledPlaceholder)
             return@page
         }
 

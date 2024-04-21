@@ -1,8 +1,8 @@
 package de.dqmme.mcserver.gui.admingui.button.manageserver
 
 import de.dqmme.mcserver.dataclass.Server
+import de.dqmme.mcserver.gui.admingui.AdminGUIItems
 import de.dqmme.mcserver.gui.admingui.scope
-import de.dqmme.mcserver.item.Items
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import net.axay.kspigot.gui.ForInventoryFiveByNine
@@ -20,20 +20,20 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.stateButtons(
     server: Server
 ) {
     fun GUIInstance<ForInventoryFiveByNine>.setCooldownItems() {
-        set(startButtonSlot, Items.startServerItemCooldown)
-        set(restartButtonSlot, Items.restartServerItemCooldown)
-        set(stopButtonSlot, Items.stopServerItemCooldown)
+        set(startButtonSlot, AdminGUIItems.startServerItemCooldown)
+        set(restartButtonSlot, AdminGUIItems.restartServerItemCooldown)
+        set(stopButtonSlot, AdminGUIItems.stopServerItemCooldown)
     }
 
     fun GUIInstance<ForInventoryFiveByNine>.setItems() {
-        set(startButtonSlot, Items.startServerItem)
-        set(restartButtonSlot, Items.restartServerItem)
-        set(stopButtonSlot, Items.stopServerItem)
+        set(startButtonSlot, AdminGUIItems.startServerItem)
+        set(restartButtonSlot, AdminGUIItems.restartServerItem)
+        set(stopButtonSlot, AdminGUIItems.stopServerItem)
     }
 
     button(
         slots = startButtonSlot,
-        itemStack = if(stateCooldown) Items.startServerItemCooldown else Items.startServerItem
+        itemStack = if(stateCooldown) AdminGUIItems.startServerItemCooldown else AdminGUIItems.startServerItem
     ) onClick@{
         if(stateCooldown) return@onClick
 
@@ -57,7 +57,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.stateButtons(
 
     button(
         slots = restartButtonSlot,
-        itemStack = if(stateCooldown) Items.restartServerItemCooldown else Items.restartServerItem
+        itemStack = if(stateCooldown) AdminGUIItems.restartServerItemCooldown else AdminGUIItems.restartServerItem
     ) onClick@{
         if(stateCooldown) return@onClick
 
@@ -81,7 +81,7 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.stateButtons(
 
     button(
         slots = stopButtonSlot,
-        itemStack = if(stateCooldown) Items.stopServerItemCooldown else Items.stopServerItem
+        itemStack = if(stateCooldown) AdminGUIItems.stopServerItemCooldown else AdminGUIItems.stopServerItem
     ) onClick@{
         if(stateCooldown) return@onClick
 

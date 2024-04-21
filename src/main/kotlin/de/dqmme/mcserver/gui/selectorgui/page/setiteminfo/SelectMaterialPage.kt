@@ -1,9 +1,9 @@
 package de.dqmme.mcserver.gui.selectorgui.page.setiteminfo
 
 import de.dqmme.mcserver.dataclass.Server
+import de.dqmme.mcserver.gui.GUIItems
 import de.dqmme.mcserver.gui.selectorgui.button.setiteminfo.searchItemButton
 import de.dqmme.mcserver.gui.selectorgui.gui.openSetInfoGUI
-import de.dqmme.mcserver.item.Skulls
 import de.dqmme.mcserver.util.deserializeMini
 import net.axay.kspigot.gui.ForInventoryThreeByNine
 import net.axay.kspigot.gui.GUIBuilder
@@ -60,16 +60,16 @@ fun GUIBuilder<ForInventoryThreeByNine>.setMaterialPage(
         }
 
         compoundScroll(
-            Slots.RowThreeSlotNine, Skulls.arrowUp, compound, scrollTimes = 3, reverse = true
+            Slots.RowThreeSlotNine, GUIItems.scrollUp, compound, scrollTimes = 3, reverse = true
         )
 
         compoundScroll(
-            Slots.RowOneSlotNine, Skulls.arrowDown, compound, scrollTimes = 3
+            Slots.RowOneSlotNine, GUIItems.scrollDown, compound, scrollTimes = 3
         )
 
         pageChanger(
             Slots.RowThreeSlotOne,
-            Skulls.arrowLeft,
+            GUIItems.back,
             if (openSelectItem) 2 else 1,
             null,
             null

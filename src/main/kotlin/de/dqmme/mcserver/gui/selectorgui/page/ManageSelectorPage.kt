@@ -3,10 +3,10 @@ package de.dqmme.mcserver.gui.selectorgui.page
 import de.dqmme.mcserver.config.impl.navigatorConfig
 import de.dqmme.mcserver.dataclass.NavigatorItem
 import de.dqmme.mcserver.dataclass.Server
+import de.dqmme.mcserver.gui.GUIItems
 import de.dqmme.mcserver.gui.admingui.scope
 import de.dqmme.mcserver.gui.selectorgui.gui.openReloadedSetInfoGUI
 import de.dqmme.mcserver.gui.selectorgui.openSelectorGUI
-import de.dqmme.mcserver.item.Skulls
 import de.dqmme.mcserver.util.Database
 import de.dqmme.mcserver.util.deserializeMini
 import kotlinx.coroutines.launch
@@ -77,6 +77,6 @@ fun GUIBuilder<ForInventorySixByNine>.manageSelectorPage(
             }
         })
 
-        pageChanger(Slots.RowOneSlotOne, Skulls.arrowLeft, if (startManagePage) 2 else 1, null, null)
+        pageChanger(Slots.RowOneSlotOne, GUIItems.back, if (startManagePage) 2 else 1, null, null)
     }
 }

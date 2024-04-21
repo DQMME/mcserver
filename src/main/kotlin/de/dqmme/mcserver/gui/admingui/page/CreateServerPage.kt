@@ -1,12 +1,12 @@
 package de.dqmme.mcserver.gui.admingui.page
 
+import de.dqmme.mcserver.gui.GUIItems
 import de.dqmme.mcserver.gui.admingui.button.createserver.setCPUButton
 import de.dqmme.mcserver.gui.admingui.button.createserver.setDiskButton
 import de.dqmme.mcserver.gui.admingui.button.createserver.setMemoryButton
 import de.dqmme.mcserver.gui.admingui.button.createserver.setNameButton
 import de.dqmme.mcserver.gui.admingui.button.createserver.setPortButton
 import de.dqmme.mcserver.gui.admingui.button.createserver.setPrivateButton
-import de.dqmme.mcserver.item.Skulls
 import net.axay.kspigot.gui.ForInventoryFiveByNine
 import net.axay.kspigot.gui.GUIBuilder
 import net.axay.kspigot.gui.PageChangeEffect
@@ -17,7 +17,7 @@ fun GUIBuilder<ForInventoryFiveByNine>.createServerPage() {
         transitionTo = PageChangeEffect.SLIDE_VERTICALLY
         transitionFrom = PageChangeEffect.SLIDE_VERTICALLY
 
-        pageChanger(Slots.RowFiveSlotOne, Skulls.arrowLeft, 1, null, null)
+        pageChanger(Slots.RowFiveSlotOne, GUIItems.back, 1, null, null)
 
         setNameButton(Slots.RowFourSlotFive)
 
