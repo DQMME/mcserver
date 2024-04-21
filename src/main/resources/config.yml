@@ -1,7 +1,9 @@
 pterodactyl:
+  #Your pterodactyl credentials
   host: "https://example.org"
   application_token: "XYZ"
   client_token: "XYZ"
+  #The default values for created servers
   server_owner_id: 123
   node_id: 123
   nest_id: 123
@@ -9,12 +11,17 @@ pterodactyl:
   location_id: 123
   allocation_ip: "123.123.123.123"
   server_description: "Minecraft Server"
+#Infos to the Database
 mongo:
   connection: "mongodb://localhost:27017"
   database: "lobby"
+#This is just to save on creating player profiles for the heads, just put in your own or some UUID you know
 default_profile_uuid: "ddd51684-dee2-4027-b29e-f693044558a6"
+#This is to prevent people from deleting the subserver plugin from servers
 subserver_plugin_name: "subserver.jar"
+#This is to send commands to the proxy (to add servers via the plugin)
 velocity_server_identifier: "1234abcd"
+#This is added to every created server, so the players can join on the subservers using the modern velocity system
 velocity_secret: "XYZ"
-#You don't need to set the butils license, it's just a support for the plugin
+#You don't need to set the butils license, it's just a support for the plugin if you want to use it on created servers
 butils_license: "YZ"
