@@ -34,6 +34,8 @@ class InstallCommand : BukkitCommand("installsubserverplugin") {
 
         if(url == null) return true
 
+        sender.sendMessage("Downloading $name from $link")
+
         HttpURLConnection.setFollowRedirects(true)
 
         val connection = url.openStream()

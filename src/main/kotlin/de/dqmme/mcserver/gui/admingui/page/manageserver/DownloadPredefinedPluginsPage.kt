@@ -5,6 +5,7 @@ import com.mattmalec.pterodactyl4j.client.entities.ClientServer
 import com.mattmalec.pterodactyl4j.client.entities.GenericFile
 import com.mattmalec.pterodactyl4j.client.entities.Utilization
 import de.dqmme.mcserver.api.PterodactylAPI
+import de.dqmme.mcserver.config.impl.pluginConfig
 import de.dqmme.mcserver.config.impl.serverPluginsConfig
 import de.dqmme.mcserver.dataclass.ManageSingleServerPage
 import de.dqmme.mcserver.dataclass.Server
@@ -49,11 +50,11 @@ fun GUIBuilder<ForInventoryFiveByNine>.downloadPredefinedPluginsPage(
 
                 onClick = { clickEvent, element ->
                     scope.launch {
-                        if(utilization == null || utilization.state != UtilizationState.RUNNING) return@launch
+                        if (utilization == null || utilization.state != UtilizationState.RUNNING) return@launch
 
                         val newUtilization = PterodactylAPI.getUtilization(serverInfo)
 
-                        if(newUtilization == null || newUtilization.state != UtilizationState.RUNNING) {
+                        if (newUtilization == null || newUtilization.state != UtilizationState.RUNNING) {
                             clickEvent.player.openReloadedManageSingleServerGUI(
                                 server,
                                 serverInfo,
@@ -69,6 +70,11 @@ fun GUIBuilder<ForInventoryFiveByNine>.downloadPredefinedPluginsPage(
                                 pageToOpen = ManageSingleServerPage.DOWNLOAD_PREDEFINED_PLUGINS
                             )
                             return@launch
+                        }
+
+                        if (element.id.lowercase() == "butils") {
+                            val bUtilsLicense = pluginConfig.getBUtilsLicense()
+                            if (bUtilsLicense != null) server.sendCommand("setbutilslicense $bUtilsLicense")
                         }
                     }
 

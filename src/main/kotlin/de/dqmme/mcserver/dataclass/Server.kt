@@ -22,7 +22,7 @@ data class Server(
 
     suspend fun stop() = PterodactylAPI.stopServer(identifier)
 
-    private suspend fun sendCommand(command: String) = PterodactylAPI.sendCommand(identifier, command)
+    suspend fun sendCommand(command: String) = PterodactylAPI.sendCommand(identifier, command)
 
     suspend fun installPlugin(link: String, name: String) = sendCommand("installsubserverplugin $link $name")
 

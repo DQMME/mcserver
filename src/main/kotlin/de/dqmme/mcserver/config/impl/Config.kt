@@ -43,6 +43,8 @@ class Config : AbstractConfig("config.yml") {
 
     fun getVelocitySecret() = yamlConfiguration.getString("velocity_secret")
 
+    fun getBUtilsLicense() = yamlConfiguration.getString("butils_license")
+
     fun getSpawnLocation() = yamlConfiguration.getLocation("spawn_location")
 
     fun setSpawnLocation(location: Location) {
