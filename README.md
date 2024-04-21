@@ -2,7 +2,7 @@
 
 Plugin for my Minecraft Server, I plan to use it for Testing plugins and host servers to play shit for me and my friends
 
-The plugin currently does:
+The plugin(s) currently do:
 
 - Lobby listeners (eg hunger, damage, block break/place)
 - create subservers via pterodactyl
