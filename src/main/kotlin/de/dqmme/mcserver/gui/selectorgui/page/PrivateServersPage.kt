@@ -3,6 +3,7 @@ package de.dqmme.mcserver.gui.selectorgui.page
 import com.mattmalec.pterodactyl4j.UtilizationState
 import com.mattmalec.pterodactyl4j.client.entities.ClientServer
 import com.mattmalec.pterodactyl4j.client.entities.Utilization
+import de.dqmme.mcserver.api.PluginMessaging
 import de.dqmme.mcserver.dataclass.Server
 import de.dqmme.mcserver.item.Items.stateItems
 import de.dqmme.mcserver.item.Skulls
@@ -57,7 +58,7 @@ fun GUIBuilder<ForInventorySixByNine>.privateServersPage(
 
                 if (utilization.state != UtilizationState.RUNNING) return@onClick
 
-                clickEvent.player.sendMessage("wirst verbunden")
+                PluginMessaging.sendToServer(clickEvent.player, serverInfo.internalId)
             })
 
         compound.sortContentBy { it.name }

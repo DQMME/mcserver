@@ -2,6 +2,7 @@ package de.dqmme.mcserver.gui.admingui.button.manageserver
 
 import com.mattmalec.pterodactyl4j.client.entities.ClientServer
 import de.dqmme.mcserver.api.PterodactylAPI
+import de.dqmme.mcserver.config.impl.navigatorConfig
 import de.dqmme.mcserver.gui.admingui.openAdminGUI
 import de.dqmme.mcserver.gui.admingui.scope
 import de.dqmme.mcserver.item.Skulls
@@ -60,6 +61,8 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.deleteServerButton(
                     Database.deleteServer(serverInfo.internalIdLong)
 
                     PterodactylAPI.deleteServer(serverInfo)
+                    PterodactylAPI.removeProxyServer(serverInfo.internalIdLong)
+                    navigatorConfig.deleteNavigatorItem(serverInfo.internalIdLong)
 
                     it.player.openAdminGUI(true)
                 }

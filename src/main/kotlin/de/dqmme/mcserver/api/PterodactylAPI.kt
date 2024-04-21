@@ -224,6 +224,19 @@ object PterodactylAPI {
         }
     }
 
+    suspend fun addProxyServer(id: Long, port: Int) {
+        val velocityServerIdentifier = pluginConfig.getVelocityServerIdentifier() ?: return
+        val serverIp = pluginConfig.getPterodactylAllocationIp()!!
+
+        sendCommand(velocityServerIdentifier, "addserver $id $serverIp $port")
+    }
+
+    suspend fun removeProxyServer(id: Long) {
+        val velocityServerIdentifier = pluginConfig.getVelocityServerIdentifier() ?: return
+
+        sendCommand(velocityServerIdentifier, "removeserver $id")
+    }
+
     suspend fun editServerSpecs(clientServer: ClientServer, memory: Long, cpu: Long, disk: Long): Boolean {
         val applicationServer = getApplicationServer(clientServer.internalIdLong) ?: return false
 
@@ -258,7 +271,7 @@ object PterodactylAPI {
     suspend fun checkPortAvailable(port: Int): Boolean {
         val allocation = getAllocation(port)
 
-        return !(allocation == null || allocation.isAssigned)
+        return allocation == null || !allocation.isAssigned
     }
 
     suspend fun changeServerName(clientServer: ClientServer, name: String): Boolean {

@@ -1,1 +1,1 @@
-rootProject.name = "mc-server"
+rootProject.name = "mcserver"

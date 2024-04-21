@@ -2,6 +2,7 @@ package de.dqmme.mcserver.gui.admingui.gui
 
 import com.mattmalec.pterodactyl4j.DataType
 import de.dqmme.mcserver.api.PterodactylAPI
+import de.dqmme.mcserver.config.impl.pluginConfig
 import de.dqmme.mcserver.gui.admingui.button.createserver.setCPUButton
 import de.dqmme.mcserver.gui.admingui.button.createserver.setDiskButton
 import de.dqmme.mcserver.gui.admingui.button.createserver.setMemoryButton
@@ -73,7 +74,7 @@ suspend fun Player.openCreateServerGUI(
 
                 setDiskButton(Slots.RowThreeSlotSix, setName, port, setMemory, setCPU, setDisk)
 
-                setPrivateButton(if(createServer) Slots.RowFourSlotNine else Slots.RowFiveSlotNine)
+                setPrivateButton(if (createServer) Slots.RowFourSlotNine else Slots.RowFiveSlotNine)
 
                 if (setPort != null && port != null) {
                     placeholder(Slots.RowOneSlotFive, itemStack(Material.LIME_WOOL) {
@@ -110,18 +111,26 @@ suspend fun Player.openCreateServerGUI(
                         }
                     }, 2, null) {
                         scope.launch {
-                            PterodactylAPI.createServer(
+                            val server = PterodactylAPI.createServer(
                                 name = setName!!,
                                 port = port!!,
                                 memory = setMemory!!,
                                 cpuPercentage = setCPU!!,
                                 storage = setDisk!!,
                                 isPrivate = createPrivateServer
-                            )
+                            ).first
 
                             delay(1.seconds)
 
                             it.player.openAdminGUI(true)
+
+                            if (server == null) return@launch
+
+                            val velocityServerIdentifier = pluginConfig.getVelocityServerIdentifier()
+
+                            if (velocityServerIdentifier != null) {
+                                PterodactylAPI.addProxyServer(server.idLong, port)
+                            }
                         }
                     }
 

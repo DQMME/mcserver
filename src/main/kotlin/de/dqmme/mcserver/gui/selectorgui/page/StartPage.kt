@@ -3,6 +3,7 @@ package de.dqmme.mcserver.gui.selectorgui.page
 import com.mattmalec.pterodactyl4j.UtilizationState
 import com.mattmalec.pterodactyl4j.client.entities.ClientServer
 import com.mattmalec.pterodactyl4j.client.entities.Utilization
+import de.dqmme.mcserver.api.PluginMessaging
 import de.dqmme.mcserver.dataclass.NavigatorItem
 import de.dqmme.mcserver.dataclass.Server
 import de.dqmme.mcserver.util.Permissions
@@ -62,7 +63,7 @@ fun GUIBuilder<ForInventorySixByNine>.startPage(
                     }
                 }
             ) { event ->
-                event.player.sendMessage("wird verbudnen bro")
+                PluginMessaging.sendToServer(event.player, serverInfo.internalId)
             }
         }
 

@@ -1,5 +1,6 @@
 package de.dqmme.mcserver
 
+import de.dqmme.mcserver.api.PluginMessaging
 import de.dqmme.mcserver.command.registerSetValueCommand
 import de.dqmme.mcserver.config.impl.Config
 import de.dqmme.mcserver.config.impl.LanguageConfig
@@ -60,5 +61,13 @@ class MCServer : KSpigot() {
 
         //Prepare worlds
         prepareWorlds()
+
+        //Register Plugin Messaging Channel
+        PluginMessaging.registerMessageChannel()
+    }
+
+    override fun shutdown() {
+        //Unregister Plugin Messaging Channel
+        PluginMessaging.unregisterMessageChannel()
     }
 }

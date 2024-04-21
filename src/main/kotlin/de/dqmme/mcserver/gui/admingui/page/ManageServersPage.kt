@@ -33,8 +33,7 @@ fun GUIBuilder<ForInventoryFiveByNine>.manageServersPage(
         transitionTo = PageChangeEffect.SLIDE_VERTICALLY
         transitionFrom = PageChangeEffect.SLIDE_VERTICALLY
 
-        val compound =
-            createRectCompound<Server>(
+        val compound = createRectCompound<Server>(
                 Slots.RowOneSlotOne, Slots.RowFiveSlotEight, iconGenerator = {
                     val serverInfo = serverInfos[it.id]!!
                     val utilization = serverUtilization[it.id]
