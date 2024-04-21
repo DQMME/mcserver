@@ -1,3 +1,8 @@
 protocol_lib:
   link: "https://github.com/dmulloy2/ProtocolLib/releases/latest/download/ProtocolLib.jar"
   name: "ProtocolLib.jar"
+#I don't want to put the link in here, because you need to accept the ToS to have access to it.
+#You can find the link on the BUtils Discord
+#butils:
+#  link: ""
+#  name: "BUtils.jar"
