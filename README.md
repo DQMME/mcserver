@@ -8,7 +8,7 @@ The plugin currently does:
 - manage subservers via pterodactyl
 - join servers via naviagtor and velocity (integrating velocity in next update)
 
-credits:
+credits (thank you):
 
 - [Emma for her Plugin template - very cool](https://github.com/emmaboecker/paper-kotlin-example)
 - [jakobkmar for KSpigot - awesome utility library for delevoping kotlin plugins](https://github.com/jakobkmar/KSpigot)
@@ -17,3 +17,4 @@ credits:
 - [SignGUI](https://github.com/Rapha149/SignGUI)
 - [KMongo](https://litote.org/kmongo/)
 - [GSON](https://github.com/google/gson)
+- [MinecraftHeads for the GUI Heads](https://minecraft-heads.com/)
