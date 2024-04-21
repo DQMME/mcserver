@@ -63,7 +63,7 @@ fun GUIBuilder<ForInventorySixByNine>.privateServersPage(
         compound.addContent(privateServers)
 
         compoundScroll(
-            Slots.RowThreeSlotNine, GUIItems.scrollUp, compound, scrollTimes = 3, reverse = true
+            Slots.RowSixSlotNine, GUIItems.scrollUp, compound, scrollTimes = 3, reverse = true
         )
 
         compoundScroll(
@@ -71,7 +71,7 @@ fun GUIBuilder<ForInventorySixByNine>.privateServersPage(
         )
 
         pageChanger(
-            Slots.RowThreeSlotOne,
+            Slots.RowFourSlotNine,
             GUIItems.back,
             if (openManageServers) 2 else 1,
             null,
