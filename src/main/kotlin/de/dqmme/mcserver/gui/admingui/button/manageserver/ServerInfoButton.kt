@@ -12,5 +12,5 @@ fun GUIPageBuilder<ForInventoryFiveByNine>.serverInfoPlaceholder(
     serverInfo: ClientServer,
     utilization: Utilization?
 ) {
-    placeholder(slot, AdminGUIItems.serverInfoItem(serverInfo, utilization))
+    placeholder(slot, AdminGUIItems.adminServerInfoItem(serverInfo, utilization))
 }

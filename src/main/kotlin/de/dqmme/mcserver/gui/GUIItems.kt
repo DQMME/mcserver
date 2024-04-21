@@ -1,14 +1,19 @@
 package de.dqmme.mcserver.gui
 
 import com.mattmalec.pterodactyl4j.UtilizationState
+import com.mattmalec.pterodactyl4j.client.entities.Utilization
+import de.dqmme.mcserver.dataclass.Server
 import de.dqmme.mcserver.item.Skulls
 import de.dqmme.mcserver.util.Colors
+import de.dqmme.mcserver.util.coloredName
 import de.dqmme.mcserver.util.deserializeMini
+import net.axay.kspigot.items.addLore
 import net.axay.kspigot.items.itemStack
 import net.axay.kspigot.items.meta
 import net.axay.kspigot.items.name
 import net.axay.kspigot.items.setLore
 import org.bukkit.Material
+import org.bukkit.inventory.ItemStack
 
 object GUIItems {
     //Skulls
@@ -58,6 +63,31 @@ object GUIItems {
 
             setLore {
                 +"<${Colors.ORANGE}>$message".deserializeMini()
+            }
+        }
+    }
+
+    fun serverItem(server: Server, utilization: Utilization?): ItemStack {
+        if (utilization == null) {
+            return itemStack(Material.CYAN_WOOL) {
+                meta {
+                    name = "<aqua>Server wird installiert".deserializeMini()
+
+                    setLore {
+                        +"<aqua>Der Server wird gerade installiert.".deserializeMini()
+                        +"<green>Warte ein paar Minuten.".deserializeMini()
+                    }
+                }
+            }
+        }
+
+        return itemStack(stateItems[utilization.state]!!) {
+            meta {
+                name = "<gold>${server.name}".deserializeMini()
+
+                addLore {
+                    +"<yellow>Status: ${utilization.state.coloredName()}".deserializeMini()
+                }
             }
         }
     }

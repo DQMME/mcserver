@@ -6,19 +6,17 @@ import com.mattmalec.pterodactyl4j.client.entities.Utilization
 import de.dqmme.mcserver.api.PluginMessaging
 import de.dqmme.mcserver.dataclass.Server
 import de.dqmme.mcserver.gui.GUIItems
-import de.dqmme.mcserver.util.coloredName
+import de.dqmme.mcserver.gui.GUIItems.serverItem
 import de.dqmme.mcserver.util.deserializeMini
 import net.axay.kspigot.gui.ForInventorySixByNine
 import net.axay.kspigot.gui.GUIBuilder
 import net.axay.kspigot.gui.PageChangeEffect
 import net.axay.kspigot.gui.Slots
-import net.axay.kspigot.items.addLore
 import net.axay.kspigot.items.itemStack
 import net.axay.kspigot.items.meta
 import net.axay.kspigot.items.name
 import net.axay.kspigot.items.setLore
 import org.bukkit.Material
-import org.bukkit.inventory.ItemStack
 
 fun GUIBuilder<ForInventorySixByNine>.privateServersPage(
     privateServers: List<Server>,
@@ -79,30 +77,5 @@ fun GUIBuilder<ForInventorySixByNine>.privateServersPage(
             null,
             null
         )
-    }
-}
-
-fun serverItem(server: Server, utilization: Utilization?): ItemStack {
-    if (utilization == null) {
-        return itemStack(Material.CYAN_WOOL) {
-            meta {
-                name = "<aqua>Server wird installiert".deserializeMini()
-
-                setLore {
-                    +"<aqua>Der Server wird gerade installiert.".deserializeMini()
-                    +"<green>Warte ein paar Minuten.".deserializeMini()
-                }
-            }
-        }
-    }
-
-    return itemStack(GUIItems.stateItems[utilization.state]!!) {
-        meta {
-            name = "<gold>${server.name}".deserializeMini()
-
-            addLore {
-                +"<yellow>Status: ${utilization.state.coloredName()}".deserializeMini()
-            }
-        }
     }
 }

@@ -38,7 +38,7 @@ fun GUIBuilder<ForInventoryFiveByNine>.manageServersPage(
                 val serverInfo = serverInfos[it.id]!!
                 val utilization = serverUtilization[it.id]
 
-                with(AdminGUIItems.serverInfoItem(serverInfo, utilization)) {
+                with(AdminGUIItems.adminServerInfoItem(serverInfo, utilization)) {
                     meta {
                         addLore {
                             +"<gold>Klicke um die Server-Infos zu bearbeiten.".deserializeMini()

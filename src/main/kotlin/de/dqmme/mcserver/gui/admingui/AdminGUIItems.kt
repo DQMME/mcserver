@@ -131,7 +131,7 @@ object AdminGUIItems {
         this
     }
 
-    fun serverInfoItem(serverInfo: ClientServer, utilization: Utilization?): ItemStack {
+    fun adminServerInfoItem(serverInfo: ClientServer, utilization: Utilization?): ItemStack {
         if (utilization == null) {
             return itemStack(Material.CYAN_WOOL) {
                 meta {
