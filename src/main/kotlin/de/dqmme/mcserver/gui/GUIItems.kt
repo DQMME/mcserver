@@ -81,12 +81,26 @@ object GUIItems {
             }
         }
 
+        if(utilization.state != UtilizationState.RUNNING) {
+            return itemStack(stateItems[utilization.state]!!) {
+                meta {
+                    name = "<gold>${server.name}".deserializeMini()
+
+                    addLore {
+                        +"<yellow>Status: ${utilization.state.coloredName()}".deserializeMini()
+                        +"<red>Du kannst dich nur mit laufenden Servern verbinden".deserializeMini()
+                    }
+                }
+            }
+        }
+
         return itemStack(stateItems[utilization.state]!!) {
             meta {
                 name = "<gold>${server.name}".deserializeMini()
 
                 addLore {
                     +"<yellow>Status: ${utilization.state.coloredName()}".deserializeMini()
+                    +"<green>Klicke, um dich mit <gold>${server.name} <green>zu verbinden".deserializeMini()
                 }
             }
         }
