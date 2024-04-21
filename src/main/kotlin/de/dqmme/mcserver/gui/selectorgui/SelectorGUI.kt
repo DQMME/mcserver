@@ -4,13 +4,14 @@ import com.mattmalec.pterodactyl4j.client.entities.ClientServer
 import com.mattmalec.pterodactyl4j.client.entities.Utilization
 import de.dqmme.mcserver.api.PterodactylAPI
 import de.dqmme.mcserver.config.impl.navigatorConfig
+import de.dqmme.mcserver.database.Database
 import de.dqmme.mcserver.dataclass.NavigatorItem
 import de.dqmme.mcserver.dataclass.Server
 import de.dqmme.mcserver.gui.openWaitGUI
 import de.dqmme.mcserver.gui.selectorgui.page.manageSelectorPage
 import de.dqmme.mcserver.gui.selectorgui.page.privateServersPage
 import de.dqmme.mcserver.gui.selectorgui.page.startPage
-import de.dqmme.mcserver.database.Database
+import de.dqmme.mcserver.util.Permissions
 import de.dqmme.mcserver.util.deserializeMini
 import net.axay.kspigot.gui.GUIType
 import net.axay.kspigot.gui.PageChangeEffect
@@ -29,7 +30,13 @@ suspend fun Player.openSelectorGUI(startManagePage: Boolean = false) {
     openWaitGUI()
 
     val servers = Database.getNavigatorServers()
-    val privateServers = Database.getPrivateServers(uniqueId.toString())
+
+    val privateServers = if (hasPermission(Permissions.JOIN_ALL_SERVERS)) {
+        Database.getPrivateServers()
+    } else {
+        Database.getPrivateServers(uniqueId.toString())
+    }
+
     val items = hashMapOf<Server, NavigatorItem>()
 
     servers.forEach {

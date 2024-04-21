@@ -2,6 +2,7 @@ package de.dqmme.mcserver.database
 
 import de.dqmme.mcserver.config.impl.pluginConfig
 import de.dqmme.mcserver.dataclass.Server
+import org.litote.kmongo.and
 import org.litote.kmongo.contains
 import org.litote.kmongo.coroutine.CoroutineClient
 import org.litote.kmongo.coroutine.CoroutineCollection
@@ -37,8 +38,10 @@ object Database {
 
     suspend fun getNavigatorServers() = serverCollection.find(Server::isOnNavigator eq true).toList()
 
+    suspend fun getPrivateServers() = serverCollection.find(Server::isPrivate eq true).toList()
+
     suspend fun getPrivateServers(uuid: String) =
-        serverCollection.find((Server::invitedPlayers::contains)(uuid)).toList()
+        serverCollection.find(and((Server::invitedPlayers::contains)(uuid), Server::isPrivate eq true)).toList()
 
     suspend fun saveServer(server: Server) = serverCollection.save(server)
 
