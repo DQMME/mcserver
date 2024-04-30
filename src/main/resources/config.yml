@@ -24,4 +24,4 @@ velocity_server_identifier: "1234abcd"
 #This is added to every created server, so the players can join on the subservers using the modern velocity system
 velocity_secret: "XYZ"
 #You don't need to set the butils license, it's just a support for the plugin if you want to use it on created servers
-butils_license: "YZ"
+butils_license: "XYZ"
