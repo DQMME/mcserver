@@ -21,7 +21,7 @@ import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
 object AdminGUIItems {
-    val createServer = with(Skulls.plus) {
+    val createServer = with(Skulls.plus.clone()) {
         meta {
             name = "<gold>Server erstellen".deserializeMini()
 
@@ -32,7 +32,7 @@ object AdminGUIItems {
         this
     }
 
-    val addPlayer = with(Skulls.plus) {
+    val addPlayer = with(Skulls.plus.clone()) {
         meta {
             name = "<green>Spieler hinzufügen".deserializeMini()
 
@@ -49,7 +49,7 @@ object AdminGUIItems {
         plugins: List<GenericFile>
     ): ItemStack {
         if (utilization == null || utilization.state != UtilizationState.RUNNING) {
-            return with(Skulls.grayArrowDown) {
+            return with(Skulls.grayArrowDown.clone()) {
                 meta {
                     name = "<gray>${serverPlugin.name}".deserializeMini()
 
@@ -63,7 +63,7 @@ object AdminGUIItems {
         }
 
         if (plugins.find { it.name == serverPlugin.name } != null) {
-            return with(Skulls.yellowArrowDown) {
+            return with(Skulls.yellowArrowDown.clone()) {
                 meta {
                     name = "<yellow>${serverPlugin.name}".deserializeMini()
 
@@ -76,7 +76,7 @@ object AdminGUIItems {
             }
         }
 
-        return with(Skulls.limeArrowDown) {
+        return with(Skulls.limeArrowDown.clone()) {
             meta {
                 name = "<green>${serverPlugin.name}".deserializeMini()
 
@@ -92,7 +92,7 @@ object AdminGUIItems {
 
     fun deletePluginItem(genericFile: GenericFile, utilization: Utilization?): ItemStack {
         if (utilization == null || utilization.state != UtilizationState.OFFLINE) {
-            return with(Skulls.grayX) {
+            return with(Skulls.grayX.clone()) {
                 meta {
                     name = "<gray>${genericFile.name}".deserializeMini()
 
@@ -106,7 +106,7 @@ object AdminGUIItems {
             }
         }
 
-        return with(Skulls.redX) {
+        return with(Skulls.redX.clone()) {
             meta {
                 name = "<gold>${genericFile.name}".deserializeMini()
 
@@ -120,7 +120,7 @@ object AdminGUIItems {
         }
     }
 
-    val deleteServerItem = with(Skulls.redX) {
+    val deleteServerItem = with(Skulls.redX.clone()) {
         meta {
             name = "<red><bold>Server löschen".deserializeMini()
 

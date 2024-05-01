@@ -17,7 +17,7 @@ import org.bukkit.inventory.ItemStack
 
 object GUIItems {
     //Skulls
-    val scrollUp = with(Skulls.arrowUp) {
+    val scrollUp = with(Skulls.arrowUp.clone()) {
         meta {
             name = "<green>Hochscrollen".deserializeMini()
 
@@ -28,7 +28,7 @@ object GUIItems {
         this
     }
 
-    val scrollDown = with(Skulls.arrowDown) {
+    val scrollDown = with(Skulls.arrowDown.clone()) {
         meta {
             name = "<green>Runterscrollen".deserializeMini()
 
@@ -39,7 +39,7 @@ object GUIItems {
         this
     }
 
-    val back = with(Skulls.arrowLeft) {
+    val back = with(Skulls.arrowLeft.clone()) {
         meta {
             name = "<gold>Zurück".deserializeMini()
 
